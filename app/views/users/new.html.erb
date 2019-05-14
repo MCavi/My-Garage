@@ -1,29 +1,39 @@
 <h2>Sign Up</h2>
 
-<form action="<%= users_url %>" method="POST">
+<form class="auth-form" action="<%= users_url %>" method="POST">
 
-    <input type="hidden"
-         name="authenticity_token"
-         value="<%= form_authenticity_token %>">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-    <label for="email">Email
-        <input type="text" name="user[email]" value="" id="email" placeholder="Enter Email">
-    </label>
+    <div class="row">
 
-    <label for="first_name">First Name
-        <input type="text" name="user[first_name]" value="" id="first_name" placeholder="Enter First Name">
-    </label>
+        <div class="small-5">
+            <label for="email">Email
+                <input type="text" name="user[email]" id="email" value="">
+            </label>
+        </div>
 
-    <label for="last_name">Last Name
-        <input type="text" name="user[last_name]" value="" id="last_name" placeholder="Enter Last Name">
-    </label>
+        <div class="small-5">
+            <label for="first_name">First Name
+                <input type="text" name="user[first_name]" id="first_name" value="">
+            </label>
+        </div>
 
-    <label for="password">Password
-        <input type="password" name="user[password]" value="" id="password" placeholder="Enter Password">
-    </label>
+        <div class="small-5">
+            <label for="last_name">Last Name
+                <input type="text" name="user[last_name]" id="last_name" value="">
+            </label>
+        </div>
 
-    <input type="submit" value="submit">
+        <div class="small-5">
+            <label for="password">Password
+                <input type="password" name="user[password]" id="password" value="">
+            </label>
+        </div>
 
-    <p>Already have an account? <a href="<%= new_session_url %>">Log In!</a></p>
-    
+    </div>
+
+    <input type="submit" value="Sign In">
+
 </form>
+
+<p>Already have an account? <a href="<%= new_session_url %>">Log In!</a></p>
