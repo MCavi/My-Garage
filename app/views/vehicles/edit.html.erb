@@ -1,0 +1,32 @@
+<h1><%= @vehicle.year %> <%= @vehicle.make %> <%= @vehicle.model %></h1>
+
+<form action="<%= vehicle_url(@vehicle) %>" method="POST">Edit Your <%= @vehicle.make %>
+
+    <input type="hidden" name="authenticity_token" value= "<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="PATCH">
+
+    <label for="year">Year
+        <input type="number" name="vehicle[year]" value="<%= @vehicle.year %>" id="year" placeholder="Enter Year">
+    </label>
+
+    <label for="make">Make
+        <input type="text" name="vehicle[make]" value="<%= @vehicle.make %>" id="make" placeholder="Enter Make">
+    </label>
+
+    <label for="model">Model
+        <input type="text" name="vehicle[model]" value="<%= @vehicle.model %>" id="model" placeholder="Enter Model">
+    </label>
+
+    <label for="vin">VIN
+        <input type="text" name="vehicle[vin]" value="<%= @vehicle.vin %>" id="vin" placeholder="Enter VIN">
+    </label>
+
+    <label for="miles">Milage
+        <input type="number" name="vehicle[miles]" value="<%= @vehicle.miles %>" id="miles" placeholder="Enter Current Milage">
+    </label>
+
+    <input type="submit" value="Update">
+    
+</form>
+
+<a href="<%= vehicles_url %>">Back to your garage</a>
