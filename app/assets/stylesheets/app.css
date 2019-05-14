@@ -1,0 +1,34 @@
+
+/* ——————————————————————————————— */
+/* ———————————— USER AUTH —————————————*/
+/* ——————————————————————————————— */
+
+.auth-h2 {
+    text-align: center;
+    margin: auto;
+    padding-top: 5%;
+}
+
+.auth-form {
+    width: 80%;
+    margin: 5% auto;
+    padding: 5%;
+    border: 1px grey solid;
+    border-radius: 4px;
+    box-shadow: 5px 5px 5px grey;
+}
+
+.auth-submit.button {
+    border-radius: 4px;
+    margin: auto;
+}
+
+.auth-switch {
+    text-align: center;
+}
+
+/* ——————————————————————————————— */
+/* —————————— VEHILCE INDEX —————————————*/
+/* ——————————————————————————————— */
+
+

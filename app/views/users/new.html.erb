@@ -1,4 +1,4 @@
-<h2>Sign Up</h2>
+<h2 class="auth-h2">Sign Up</h2>
 
 <form class="auth-form" action="<%= users_url %>" method="POST">
 
@@ -32,8 +32,8 @@
 
     </div>
 
-    <input type="submit" value="Sign In">
+    <input class="auth-submit button" type="submit" value="Sign In">
 
 </form>
 
-<p>Already have an account? <a href="<%= new_session_url %>">Log In!</a></p>
+<div class="auth-switch">Already have an account? <a href="<%= new_session_url %>">Log In!</a></div>
