@@ -34,6 +34,8 @@ gem 'annotate'
 gem 'jquery-rails'
 gem 'nhtsa_vin'
 
+gem 'foundation-rails'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
