@@ -41,7 +41,7 @@ class MaintenanceItemsController < ApplicationController
 
     private
     def maintenance_item_params
-        params.require(:maintenance_item).permit(:title, :date_preformed, :comment, :current_milage, :cost)
+        params.require(:maintenance_item).permit(:title, :date_preformed, :comment, :current_mileage, :cost)
     end 
 
 end 

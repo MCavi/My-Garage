@@ -1,41 +1,66 @@
-<h2><%= @vehicle.year %> <%= @vehicle.make %> <%= @vehicle.model %></h2>
+<h2 class="auth-h2" style="padding-top: 0%;"><%= @vehicle.year %> <%= @vehicle.make %> <%= @vehicle.model %></h2>
 
-<form action="<%= vehicle_maintenance_items_url(@vehicle) %>" method="POST">Add A Vehicle
+<div class="modal-button-wrapper">
+    <a data-open="serviceModal" class="small button" style="margin: 2% 0 0 0;">Add Service</a>
+</div>
 
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<div class="vehicle-form-wrapper reveal" id="serviceModal" data-reveal>
+    <form class="vehicle-form" action="<%= vehicle_maintenance_items_url(@vehicle) %>" method="POST">Add Service
 
-     <label for="title">Title
-        <input type="text" name="maintenance_item[title]" value="" id="title" placeholder="Enter Title">
-    </label>
+        <h3>Add A Service</h3>
 
-    <label for="date_preformed">Date Preformed
-        <input type="date" name="maintenance_item[date_preformed]" value="" id="date_preformed" placeholder="Add Date Preformed">
-    </label>
 
-    <label for="current_mileage">Current Mileage
-        <input type="number" name="maintenance_item[current_mileage]" value="" id="current_mileage" placeholder="Add Current Mileage">
-    </label>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-    <label for="comment">Comment
-        <input type="text" name="maintenance_item[comment]" value="" id="comment" placeholder="Add Comment">
-    </label>
+        <label for="title">Title
+            <input type="text" name="maintenance_item[title]" value="" id="title" placeholder="Enter Title">
+        </label>
 
-    <label for="cost">Cost
-        <input type="integer" name="maintenance_item[cost]" value="" id="cost" placeholder="Add Cost">
-    </label>
+        <label for="date_preformed">Date Preformed
+            <input type="date" name="maintenance_item[date_preformed]" value="" id="date_preformed" placeholder="Add Date Preformed">
+        </label>
 
-    <input type="submit" value="Add Maintenance">
-    
-</form>
+        <label for="current_mileage">Current Mileage
+            <input type="number" name="maintenance_item[current_mileage]" value="" id="current_mileage" placeholder="Add Current Mileage">
+        </label>
 
-<ul>
+        <label for="comment">Comment
+            <input type="text" name="maintenance_item[comment]" value="" id="comment" placeholder="Add Comment">
+        </label>
+
+        <label for="cost">Cost
+            <input type="integer" name="maintenance_item[cost]" value="" id="cost" placeholder="Add Cost">
+        </label>
+
+        <input type="submit" value="Add Maintenance">
+
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        
+    </form>
+</div>
+<div class="maintenance-items-wrapper">
     <% @vehicle.maintenance_items.map do |maintenance| %>
-        <li>
-            <%= maintenance.title %> <%= maintenance.date_preformed %> 
-            <%= link_to "delete", [@vehicle, maintenance], :method  => :delete %>
-        </li>
+        <div class="maintenance-items">
+            <div>
+                <div><%= maintenance.title %></div>
+            </div>
+            <div>
+                <div>Date: <%= maintenance.date_preformed %></div>
+            </div>
+            <div>
+                <div>Miles: <%= maintenance.current_mileage %></div>
+            </div>
+            <div>
+                <div>Cost: $<%= maintenance.cost %></div>
+            </div>
+            <div>
+                <%= link_to "delete", [@vehicle, maintenance], :method  => :delete %>
+            </div>
+        </div>
     <% end %>
-</ul>
+</div>
 
 
 

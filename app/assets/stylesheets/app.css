@@ -89,3 +89,25 @@
 .remove.button.small {
     background: red;
 }
+
+/* ——————————————————————————————— */
+/* —————— MAINTENANCE ITEMS ———————*/
+/* ——————————————————————————————— */
+
+.maintenance-items-wrapper {
+    margin: 3% auto;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.maintenance-items {
+    width: 100%;
+    padding: 2%;
+    border: 1px black solid;
+    box-shadow: 3px 3px 3px grey;
+    border-radius: 5px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
