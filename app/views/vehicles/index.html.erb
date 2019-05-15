@@ -1,6 +1,8 @@
-<h1>Your Garage</h1>
+<h1 class="index-title">Your Garage</h1>
 
-<a data-open="basicModal" class="button">Add a Vehicle</a>
+<div class="modal-button-wrapper">
+    <a data-open="basicModal" class="small button">Add a Vehicle</a>
+</div>
 
 <div class="vehicle-form-wrapper reveal" id="basicModal" data-reveal>
     <form class="vehicle-form" action="<%= vehicles_url %>" method="POST">

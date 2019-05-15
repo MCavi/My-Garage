@@ -1,6 +1,17 @@
+.button {
+    border-radius: 5px;
+}
+
 /* ——————————————————————————————— */
 /* ———————————— USER AUTH —————————————*/
 /* ——————————————————————————————— */
+
+.current-user-wrapper {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5%;
+    margin-top: 1%;
+}
 
 .auth-h2 {
     text-align: center;
@@ -30,6 +41,15 @@
 /* —————————— VEHILCE INDEX —————————————*/
 /* ——————————————————————————————— */
 
+
+.index-title {
+    text-align:center;
+}
+
+.modal-button-wrapper {
+    display: flex;
+    justify-content: center;
+}
 
 .vehicle-form-wrapper.reveal {
     box-shadow: 5px 5px 5px black;

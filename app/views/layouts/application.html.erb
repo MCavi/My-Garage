@@ -15,8 +15,12 @@
 
 
     <% if logged_in? %>
-      <div>Hello, <%= current_user.first_name %>!</div>
-      <%= link_to "Log Out", "session", :method => :delete, :data => {:confirm => "Log Out?"} %>  
+      <div class="current-user-wrapper">
+      <h3>
+        Welcome, <%= current_user.first_name %>!
+      </h3>
+        <%= link_to "Log Out", "session", :method => :delete, :data => {:confirm => "Log Out?"} %>
+      </div>
     <% end %>
 
     <%= yield %>
