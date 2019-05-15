@@ -1,49 +1,63 @@
 <h1>Your Garage</h1>
 
+<a data-open="basicModal" class="button">Add a Vehicle</a>
 
-<form action="<%= vehicles_url %>" method="POST">Add A Vehicle
+<div class="vehicle-form-wrapper reveal" id="basicModal" data-reveal>
+    <form class="vehicle-form" action="<%= vehicles_url %>" method="POST">
 
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <h3>Add A Vehicle</h3>
 
-    <label for="year">Year
-        <input type="number" name="vehicle[year]" value="" id="year" placeholder="Enter Year">
-    </label>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-    <label for="make">Make
-        <input type="text" name="vehicle[make]" value="" id="make" placeholder="Enter Make">
-    </label>
+        <label for="year">Year
+            <input type="number" name="vehicle[year]" value="" id="year" placeholder="Enter Year">
+        </label>
 
-    <label for="model">Model
-        <input type="text" name="vehicle[model]" value="" id="model" placeholder="Enter Model">
-    </label>
+        <label for="make">Make
+            <input type="text" name="vehicle[make]" value="" id="make" placeholder="Enter Make">
+        </label>
 
-    <label for="vin">VIN
-        <input type="text" name="vehicle[vin]" value="" id="vin" placeholder="Enter VIN">
-    </label>
+        <label for="model">Model
+            <input type="text" name="vehicle[model]" value="" id="model" placeholder="Enter Model">
+        </label>
 
-    <label for="mileage">Mileage
-        <input type="number" name="vehicle[mileage]" value="" id="mileage" placeholder="Enter Current Mileage">
-    </label>
+        <label for="vin">VIN
+            <input type="text" name="vehicle[vin]" value="" id="vin" placeholder="Enter VIN">
+        </label>
 
-    <input type="submit" value="submit">
-    
-</form>
+        <label for="mileage">Mileage
+            <input type="number" name="vehicle[mileage]" value="" id="mileage" placeholder="Enter Current Mileage">
+        </label>
 
+        <input type="submit" class="button" value="submit">
 
-<div>
-
-    <ul>
-    <% @vehicles.map do |vehicle| %>
-        <li>
-            <a href="<%= vehicle_url(vehicle) %>"><%= vehicle.year %> <%= vehicle.make %> <%= vehicle.model %></a>  
-            <form action="<%= vehicle_url(vehicle) %>" method="POST">
-                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                <input type="hidden" name="_method" value="DELETE">
-                <input type="submit" value="Remove Vehicle"/>
-            </form>
-            <a href="<%= edit_vehicle_url(vehicle) %>">Edit Vehicle</a>
-        </li>
-    <% end %>
-    </ul>
-
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        
+    </form>
 </div>
+
+
+<div class="vehicle-items-list-wrapper">
+    <ul class="vehicle-items-list">
+        <% @vehicles.map do |vehicle| %>
+            <li class="vehicle-items">
+                <h2 class="auth-h2">
+                    <a href="<%= vehicle_url(vehicle) %>"><%= vehicle.year %> <%= vehicle.make %> <%= vehicle.model %></a>  
+                </h2>
+                <div class="vehicle-item-bottom-row">
+                    <form action="<%= vehicle_url(vehicle) %>" method="POST">
+                        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input class="remove button small" type="submit" value="Remove Vehicle"/>
+                    </form>
+
+                    <a class="button small" href="<%= edit_vehicle_url(vehicle) %>">Edit Vehicle</a>
+                </div>
+            </li>
+        <% end %>
+    </ul>
+</div>
+
+
