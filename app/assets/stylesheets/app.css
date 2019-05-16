@@ -89,6 +89,10 @@
     margin-bottom: 2%;
 }
 
+.vehicle-items:hover {
+    cursor: pointer;
+}
+
 .vehicle-item-bottom-row {
     display: flex;
     flex-direction: row-reverse;
@@ -106,6 +110,7 @@
 
 .vehicle-link:hover {
     cursor: pointer;
+    color: black;
 }
 
 /* ——————————————————————————————— */
