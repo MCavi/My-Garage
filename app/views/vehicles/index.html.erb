@@ -31,7 +31,7 @@
             <input type="number" name="vehicle[mileage]" value="" id="mileage" placeholder="Enter Current Mileage">
         </label>
 
-        <input type="submit" class="button" value="submit">
+        <input type="submit" class="auth-submit button" value="submit">
         
     </form>
 </div>
@@ -42,7 +42,7 @@
         <% @vehicles.map do |vehicle| %>
             <li class="vehicle-items" key="<%= vehicle.id %>">
                 <h2 class="auth-h2">
-                    <a href="<%= vehicle_url(vehicle) %>"><%= vehicle.year %> <%= vehicle.make %> <%= vehicle.model %></a>  
+                    <a class="vehicle-link" href="<%= vehicle_url(vehicle) %>"><%= vehicle.year %> <%= vehicle.make %> <%= vehicle.model %></a>  
                 </h2>
                 <div class="vehicle-item-bottom-row">
                     <form action="<%= vehicle_url(vehicle) %>" method="POST">

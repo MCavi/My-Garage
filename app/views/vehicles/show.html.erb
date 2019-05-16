@@ -1,13 +1,13 @@
 <h2 class="auth-h2" style="padding-top: 0%;"><%= @vehicle.year %> <%= @vehicle.make %> <%= @vehicle.model %></h2>
 
 <div class="modal-button-wrapper">
-    <p><a href="#serviceModal" rel="modal:open">Add Service</a></p>
+    <p><a href="#serviceModal" rel="modal:open">Add Maintenance</a></p>
 </div>
 
 <div class="vehicle-form-wrapper modal" id="serviceModal">
-    <form class="vehicle-form" action="<%= vehicle_maintenance_items_url(@vehicle) %>" method="POST">Add Service
+    <form class="vehicle-form" action="<%= vehicle_maintenance_items_url(@vehicle) %>" method="POST">
 
-        <h3>Add A Service</h3>
+        <h3>Add Maintenance</h3>
 
 
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -29,32 +29,36 @@
         </label>
 
         <label for="cost">Cost
-            <input type="integer" name="maintenance_item[cost]" value="" id="cost" placeholder="Add Cost">
+            <input type="number" name="maintenance_item[cost]" value="" id="cost" placeholder="Add Cost">
         </label>
 
-        <input type="submit" value="Add Maintenance">
+        <input type="submit"  class="auth-submit button" value="Add Maintenance">
         
     </form>
 </div>
 <div class="maintenance-items-wrapper">
     <% @vehicle.maintenance_items.map do |maintenance| %>
-        <div class="maintenance-items" key="<%= maintenance.id %>">
-            <div>
-                <div><%= maintenance.title %></div>
-            </div>
-            <div>
-                <div>Date: <%= maintenance.date_preformed %></div>
-            </div>
-            <div>
-                <div>Miles: <%= maintenance.current_mileage %></div>
-            </div>
-            <div>
-                <div>Cost: $<%= maintenance.cost %></div>
-            </div>
-            <div>
-                <div  class="small button">
-                    <%= link_to "delete", [@vehicle, maintenance], :method => :delete %>
+        <div class="maintenance-items" key="<%= maintenance.id %>" onClick={this.handleClickVehicle.bind(this)}>
+            <div class="maintenance-left">
+                <div >
+                    <div class="maintenance-item-title"><%= maintenance.title %></div>
                 </div>
+                <div>
+                    <div> Date: <%= maintenance.date_preformed %></div>
+                </div>
+                <div>
+                    <div>Miles: <%= maintenance.current_mileage %></div>
+                </div>
+            </div>
+            <div class="maintenance-right">
+                    <form action="<%= vehicle_maintenance_item_url(@vehicle, maintenance) %>" method="POST">
+                        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input class="my-remove remove button small" type="submit" value="Remove"/>
+                    </form>
+
+                    <a class="auth-submit button small" href="<%= edit_vehicle_maintenance_item_url(@vehicle, maintenance) %>">Edit</a>
+
             </div>
         </div>
     <% end %>

@@ -33,6 +33,11 @@
     margin: auto;
 }
 
+.my-remove.button {
+    border-radius: 4px;
+    margin: auto;
+}
+
 .auth-switch {
     text-align: center;
 }
@@ -82,11 +87,6 @@
     border-radius: 5px;
     margin-top: 2%;
     margin-bottom: 2%;
-    cursor: pointer;
-}
-
-.vehicle-items:hover {
-    cursor: pointer;
 }
 
 .vehicle-item-bottom-row {
@@ -97,6 +97,15 @@
 
 .remove.button.small {
     background: red;
+}
+
+.vehicle-link {
+    color: black;
+
+}
+
+.vehicle-link:hover {
+    cursor: pointer;
 }
 
 /* ——————————————————————————————— */
@@ -119,4 +128,28 @@
     border-radius: 5px;
     margin-top: 2%;
     margin-bottom: 2%;
+    display: flex;
+    flex-direction: row;
+}
+
+.maintenance-left {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+}
+
+.maintenance-item-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.maintenance-item-start {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.maintenance-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
