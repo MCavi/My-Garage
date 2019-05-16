@@ -27,7 +27,7 @@ class VehiclesController < ApplicationController
 
     def edit 
         @vehicle = Vehicle.find(params[:id])
-        render :edit
+        render :edit    
     end 
 
     def update

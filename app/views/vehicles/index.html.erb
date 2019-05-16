@@ -4,6 +4,8 @@
     <p><a href="#vehicleModal" rel="modal:open">Add Vehicle</a></p>
 </div>
 
+
+<!----------- Form to add a new vehicle --------------->
 <div class="vehicle-form-wrapper modal" id="vehicleModal">
     <form class="vehicle-form" action="<%= vehicles_url %>" method="POST">
 
@@ -36,11 +38,11 @@
     </form>
 </div>
 
-
+<!-- Creating list elements for each vehicle -->
 <div class="vehicle-items-list-wrapper">
     <ul class="vehicle-items-list">
         <% @vehicles.map do |vehicle| %>
-            <li class="vehicle-items" id="<%= vehicle.id %>" data="<%= vehicle %>" value="">
+            <li class="vehicle-items" id="<%= vehicle.id %>" >
                 <h2 class="auth-h2">
                     <a class="vehicle-link" href="<%= vehicle_url(vehicle) %>"><%= vehicle.year %> <%= vehicle.make %> <%= vehicle.model %></a>  
                 </h2>
@@ -59,15 +61,21 @@
 </div>
 
 
+
+
 <!----------------------------------------------------->
-<!-------------------  Javascript   ------------------->
+<!---------------------  JQuery  ---------------------->
 <!----------------------------------------------------->
 
 <script>
+
+    // Change URL to vehicle show page on click
     $('.vehicle-items').click( (data) => {
         vehicleId = parseInt(data.currentTarget.id);
         window.location.href = `/vehicles/${vehicleId}`;
     });
+
+
 </script>
 
 
