@@ -1,10 +1,10 @@
 <h2 class="auth-h2" style="padding-top: 0%;"><%= @vehicle.year %> <%= @vehicle.make %> <%= @vehicle.model %></h2>
 
 <div class="modal-button-wrapper">
-    <a data-open="serviceModal" class="small button" style="margin: 2% 0 0 0;">Add Service</a>
+    <p><a href="#serviceModal" rel="modal:open">Add Service</a></p>
 </div>
 
-<div class="vehicle-form-wrapper reveal" id="serviceModal" data-reveal>
+<div class="vehicle-form-wrapper modal" id="serviceModal">
     <form class="vehicle-form" action="<%= vehicle_maintenance_items_url(@vehicle) %>" method="POST">Add Service
 
         <h3>Add A Service</h3>
@@ -33,10 +33,6 @@
         </label>
 
         <input type="submit" value="Add Maintenance">
-
-        <button class="close-button" data-close aria-label="Close modal" type="button">
-            <span aria-hidden="true">&times;</span>
-        </button>
         
     </form>
 </div>
@@ -56,7 +52,9 @@
                 <div>Cost: $<%= maintenance.cost %></div>
             </div>
             <div>
-                <%= link_to "delete", [@vehicle, maintenance], :method  => :delete %>
+                <div  class="small button">
+                    <%= link_to "delete", [@vehicle, maintenance], :method => :delete %>
+                </div>
             </div>
         </div>
     <% end %>
@@ -65,3 +63,16 @@
 
 
 <a href="<%= vehicles_url %>">Back to your garage</a>
+
+
+
+<!-- Link to open the modal -->
+<!-- <p><a href="#ex1" rel="modal:open">Open Modal</a></p> --> 
+
+
+
+<!-- Modal HTML embedded directly into document -->
+<div id="ex1" class="modal">
+  <p>Thanks for clicking. That felt good.</p>
+  <a href="#" rel="modal:close">Close</a>
+</div>

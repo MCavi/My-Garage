@@ -1,10 +1,10 @@
 <h1 class="index-title">Your Garage</h1>
 
 <div class="modal-button-wrapper">
-    <a data-open="addVehicleModal" class="small button">Add a Vehicle</a>
+    <p><a href="#vehicleModal" rel="modal:open">Add Vehicle</a></p>
 </div>
 
-<div class="vehicle-form-wrapper reveal" id="addVehicleModal" data-reveal>
+<div class="vehicle-form-wrapper modal" id="vehicleModal">
     <form class="vehicle-form" action="<%= vehicles_url %>" method="POST">
 
         <h3>Add A Vehicle</h3>
@@ -32,10 +32,6 @@
         </label>
 
         <input type="submit" class="button" value="submit">
-
-        <button class="close-button" data-close aria-label="Close modal" type="button">
-            <span aria-hidden="true">&times;</span>
-        </button>
         
     </form>
 </div>
