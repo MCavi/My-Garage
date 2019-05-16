@@ -40,7 +40,7 @@
 <div class="vehicle-items-list-wrapper">
     <ul class="vehicle-items-list">
         <% @vehicles.map do |vehicle| %>
-            <li class="vehicle-items" key="<%= vehicle.id %>">
+            <li class="vehicle-items" id="<%= vehicle.id %>" data="<%= vehicle %>" value="">
                 <h2 class="auth-h2">
                     <a class="vehicle-link" href="<%= vehicle_url(vehicle) %>"><%= vehicle.year %> <%= vehicle.make %> <%= vehicle.model %></a>  
                 </h2>
@@ -57,5 +57,18 @@
         <% end %>
     </ul>
 </div>
+
+
+<!----------------------------------------------------->
+<!-------------------  Javascript   ------------------->
+<!----------------------------------------------------->
+
+<script>
+    $('.vehicle-items').click( (data) => {
+        vehicleId = parseInt(data.currentTarget.id);
+        window.location.href = `/vehicles/${vehicleId}`;
+    });
+</script>
+
 
 
