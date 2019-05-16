@@ -40,7 +40,7 @@
 <div class="vehicle-items-list-wrapper">
     <ul class="vehicle-items-list">
         <% @vehicles.map do |vehicle| %>
-            <li class="vehicle-items">
+            <li class="vehicle-items" key="<%= vehicle.id %>">
                 <h2 class="auth-h2">
                     <a href="<%= vehicle_url(vehicle) %>"><%= vehicle.year %> <%= vehicle.make %> <%= vehicle.model %></a>  
                 </h2>

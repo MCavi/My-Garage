@@ -38,7 +38,7 @@
 </div>
 <div class="maintenance-items-wrapper">
     <% @vehicle.maintenance_items.map do |maintenance| %>
-        <div class="maintenance-items">
+        <div class="maintenance-items" key="<%= maintenance.id %>">
             <div>
                 <div><%= maintenance.title %></div>
             </div>
