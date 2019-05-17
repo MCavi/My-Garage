@@ -1,28 +1,32 @@
 <div class="information-container">
-    <div class="information-top-row">
-        <h2 class="auth-h2">
-            <%= @vehicle.year %> <%= @vehicle.make %> <%= @vehicle.model %>
-        </h2>
-    </div>
-    <div class="information-row">
-        <h3 class="auth-h2">
-            <%= @maintenance_item.title %>
-        </h3>
-    </div>
+    
+    <h2 class="auth-h2">
+        <%= @vehicle.year %> <%= @vehicle.make %> <%= @vehicle.model %>
+    </h2>
+    
+    <h3 class="auth-h2" style="margin-bottom: 3%;">
+        <%= @maintenance_item.title %>
+    </h3>
+
     <div class="information-row">    
         Date: <%= @maintenance_item.date_preformed %>
     </div>
+
     <div class="information-row">    
         Mileage: <%= @maintenance_item.current_mileage %>
     </div>
+
+    <div class="information-row">    
+        Cost: $<%= @maintenance_item.cost %>
+    </div>
+
     <div class="information-row">    
         Comment: <%= @maintenance_item.comment %>
     </div>
-    <div class="information-row">    
-        Cost: <%= @maintenance_item.cost %>
-    </div>
+
 </div>
 
-
-<a href="<%= vehicle_url(@vehicle_id) %>">Back to your vehicle</a>
+<div class="back-button-wrapper">
+    <a class="back-button" href="<%= vehicle_url(@vehicle_id) %>">Back to your vehicle</a>
+</div>
 

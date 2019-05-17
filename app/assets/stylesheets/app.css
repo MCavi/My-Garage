@@ -17,6 +17,7 @@
     text-align: center;
     margin: auto;
     padding-top: 5%;
+    font-weight: 500;
 }
 
 .auth-form {
@@ -161,4 +162,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* ——————————————————————————————— */
+/* —————— MAINTENANCE ITEM SHOW ———————*/
+/* ——————————————————————————————— */
+
+.information-container{
+    display: flex;
+    width: 85%;
+    margin: auto;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.information-row{
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.back-button-wrapper {
+    margin-top: 4%;
+    display: flex;
+    justify-content: center;
 }
