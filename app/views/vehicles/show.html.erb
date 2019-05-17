@@ -38,7 +38,7 @@
 </div>
 <div class="maintenance-items-wrapper">
     <% @vehicle.maintenance_items.map do |maintenance| %>
-        <div class="maintenance-items" key="<%= maintenance.id %>" onClick={this.handleClickVehicle.bind(this)}>
+        <div class="maintenance-items" key="<%= maintenance.id %>">
             <div class="maintenance-left">
                 <div >
                     <div class="maintenance-item-title" data="Hello"><%= maintenance.title %></div>

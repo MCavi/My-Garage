@@ -1,0 +1,36 @@
+<div class="vehicle-form-wrapper" id="serviceModal">
+    <form class="vehicle-form" action="<%= vehicle_maintenance_item_url(@vehicle_id, @maintenance_item) %>" method="POST">
+
+        <h3>Edit Maintenance</h3>
+
+
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="_method" value="PATCH">
+
+        <label for="title">Title
+            <input type="text" name="maintenance_item[title]" value="<%= @maintenance_item.title %>" id="title" placeholder="Enter Title">
+        </label>
+
+        <label for="date_preformed">Date Preformed
+            <input type="date" name="maintenance_item[date_preformed]" value="<%= @maintenance_item.date_preformed %>" id="date_preformed" placeholder="Add Date Preformed">
+        </label>
+
+        <label for="current_mileage">Current Mileage
+            <input type="number" name="maintenance_item[current_mileage]" value="<%= @maintenance_item.current_mileage %>" id="current_mileage" placeholder="Add Current Mileage">
+        </label>
+
+        <label for="comment">Comment
+            <input type="text" name="maintenance_item[comment]" value="<%= @maintenance_item.comment %>" id="comment" placeholder="Add Comment">
+        </label>
+
+        <label for="cost">Cost
+            <input type="number" name="maintenance_item[cost]" value="<%= @maintenance_item.cost %>" id="cost" placeholder="Add Cost">
+        </label>
+
+        <input type="submit"  class="auth-submit button" value="Edit Maintenance">
+
+        <a href="<%= vehicle_url(@vehicle_id) %>">Back to your vehicle</a>
+
+        
+    </form>
+</div>

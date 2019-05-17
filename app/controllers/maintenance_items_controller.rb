@@ -19,13 +19,15 @@ class MaintenanceItemsController < ApplicationController
 
     def edit
         @maintenance_item = MaintenanceItem.find(params[:id])
+        @vehicle_id = @maintenance_item.vehicle_id
         render :edit
     end 
 
     def update
         @maintenance_item = MaintenanceItem.find(params[:id])
-        if @maintenance_item.update
-            redirect_to vehicles_url(params[:vehicle_id])
+        vehicle_id = @maintenance_item.vehicle_id
+        if @maintenance_item.update(maintenance_item_params)
+            redirect_to vehicle_url(vehicle_id)
         else 
             flash.now[:errors] = @maintenance_item.errors.full_messages
             render :edit
