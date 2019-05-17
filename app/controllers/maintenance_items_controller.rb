@@ -8,6 +8,7 @@ class MaintenanceItemsController < ApplicationController
     def show
         @maintenance_item = MaintenanceItem.find(params[:id])
         @vehicle_id = @maintenance_item.vehicle_id
+        @vehicle = Vehicle.find(@vehicle_id)
         render :show
     end     
 

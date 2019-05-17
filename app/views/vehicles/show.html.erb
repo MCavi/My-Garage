@@ -1,14 +1,16 @@
 <h2 class="auth-h2" style="padding-top: 0%;"><%= @vehicle.year %> <%= @vehicle.make %> <%= @vehicle.model %></h2>
 
+
+<!----------- button to launch modal to add maintenance --------------->
 <div class="modal-button-wrapper">
     <p><a href="#serviceModal" rel="modal:open">Add Maintenance</a></p>
 </div>
 
+<!----------- Modal to add a new maintenance --------------->
 <div class="vehicle-form-wrapper modal" id="serviceModal">
     <form class="vehicle-form" action="<%= vehicle_maintenance_items_url(@vehicle) %>" method="POST">
 
         <h3>Add Maintenance</h3>
-
 
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
@@ -36,9 +38,14 @@
         
     </form>
 </div>
-<div class="maintenance-items-wrapper">
+
+
+<!-- Creating list elements for each maintenance item -->
+<div class="maintenance-items-wrapper" id="maintenance-items-wrapper">
     <% @vehicle.maintenance_items.map do |maintenance| %>
-        <div class="maintenance-items" key="<%= maintenance.id %>">
+        <div class="maintenance-items" id="<%= maintenance.id %>">
+            <a href="#vehicleModal" rel="modal:open"></a>
+            
             <div class="maintenance-left">
                 <div >
                     <div class="maintenance-item-title" data="Hello"><%= maintenance.title %></div>
@@ -51,6 +58,7 @@
                 </div>
             </div>
             <div class="maintenance-right">
+
                     <form action="<%= vehicle_maintenance_item_url(@vehicle, maintenance) %>" method="POST">
                         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
                         <input type="hidden" name="_method" value="DELETE">
@@ -66,4 +74,19 @@
 
 
 
+
+
 <a href="<%= vehicles_url %>">Back to your garage</a>
+
+
+<!----------- JQuery --------------->
+<script>
+
+    $('.maintenance-items').click( (data) => {
+        const maintenance_id = parseInt(data.currentTarget.id);
+        const urlArr = window.location.href.split('/');
+        const vehicleId = parseInt(urlArr.pop());
+        window.location.href = `/vehicles/${vehicleId}/maintenance_items/${maintenance_id}`;
+     });
+
+</script>
