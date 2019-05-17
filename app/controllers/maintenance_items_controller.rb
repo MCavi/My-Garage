@@ -3,7 +3,13 @@ class MaintenanceItemsController < ApplicationController
     def index
         @maintenance_items = MaintenanceItem.all
         render :index
-    end 
+    end
+    
+    def show
+        @maintenance_item = MaintenanceItem.find(params[:id])
+        @vehicle_id = @maintenance_item.vehicle_id
+        render :show
+    end     
 
     def create
         @maintenance_item = MaintenanceItem.new(maintenance_item_params)
