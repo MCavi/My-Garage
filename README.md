@@ -1,1 +1,1 @@
-# My Garage App
+# The Garage App
