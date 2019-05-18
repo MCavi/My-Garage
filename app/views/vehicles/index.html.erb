@@ -18,7 +18,9 @@
         </label>
 
         <label for="make">Make
-            <input type="text" name="vehicle[make]" value="" id="make" placeholder="Enter Make">
+            <div class = "ui-widget">
+                <input type="text" name="vehicle[make]" value="" id="make" placeholder="Enter Make">
+            </div>
         </label>
 
         <label for="model">Model
@@ -64,13 +66,9 @@
 
 
 
-<!----------------------------------------------------->
-<!---------------------  JQuery  ---------------------->
-<!----------------------------------------------------->
+<script >
 
-<script>
-
-    // Stopping Event Bubbling
+    // Stop Event Bubbling when clicking child element
     $('.xdf').click(function(e){
         e.stopPropagation();
     });
@@ -81,6 +79,41 @@
         window.location.href = `/vehicles/${vehicleId}`;
     });
 
+    // Array of some vehicle makes
+    const vehicleMakes = [
+            "Audi",
+            "Aston Martin",
+            "Alfa Romeo",
+            "Bentley", 
+            "BMW",
+            "Mercedes-Benz",
+            "Ferrari",
+            "Jaguar",
+            "Volkswagen",
+            "Porsche",
+            "Sabb",
+            "Volvo",
+            "Fiat",
+            "Ford",
+            "Jeep",
+            "GMC",
+            "Tesla",
+            "Nissan",
+            "Toyota",
+            "Honda",
+            "Mazda",
+            "Lexus"];
+
+    // Using jquery autocomplete to search through an array
+    // of possible vehilce makes 
+    $(function($) {
+        $("#make").autocomplete({
+            source: vehicleMakes,
+            
+            // autofocus selects first menu item by default
+            autoFocus: true,
+        });
+    });
 
 </script>
 

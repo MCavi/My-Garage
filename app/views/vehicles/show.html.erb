@@ -78,10 +78,12 @@
     <a class="auth-submit button" href="<%= vehicles_url %>">Back to your garage</a>
 </div>
 
-<!----------- JQuery --------------->
+
+
 <script>
 
-    // Stopping Event Bubbling
+
+    // Stop Event Bubbling when clicking child element    
     $('.xdf').click(function(e){
         e.stopPropagation();
     });
