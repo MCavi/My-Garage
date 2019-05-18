@@ -1,7 +1,11 @@
 class SessionsController < ApplicationController
 
   def new
-    render :new
+      if current_user
+          redirect_to vehicles_url 
+      else
+          render :new
+      end 
   end
 
   def create

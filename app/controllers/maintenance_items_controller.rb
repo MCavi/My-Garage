@@ -1,5 +1,8 @@
 class MaintenanceItemsController < ApplicationController
 
+    before_action :ensure_logged_in
+
+
     def index
         @maintenance_items = MaintenanceItem.all
         render :index

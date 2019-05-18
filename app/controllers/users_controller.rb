@@ -1,14 +1,19 @@
 class UsersController < ApplicationController
+    
 
     def new
-        render :new
+        if current_user
+            redirect_to vehicles_url 
+        else
+            render :new
+        end 
     end
-
+    
     def show
         @user = User.find_by(id: params[:id])
         render :show
     end 
-
+    
     def create  
         @user = User.new(user_params)
         if @user.save

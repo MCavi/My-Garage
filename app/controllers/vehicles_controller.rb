@@ -1,5 +1,7 @@
 class VehiclesController < ApplicationController
 
+    before_action :ensure_logged_in
+
     def new
         render :new
     end 
@@ -15,7 +17,7 @@ class VehiclesController < ApplicationController
         end 
     end 
 
-    def index
+    def index 
         @vehicles = Vehicle.where(user_id: current_user.id)
         render :index
     end
