@@ -29,7 +29,9 @@
 
         <input type="submit"  class="auth-submit button" value="Edit Maintenance">
 
-        <a href="<%= vehicle_url(@vehicle_id) %>">Back to your vehicle</a>
+        <div class="back-button-wrapper">
+            <a class="back-button button" href="<%= vehicle_url(@vehicle_id) %>">Back to your vehicle</a>
+        </div>
 
         
     </form>

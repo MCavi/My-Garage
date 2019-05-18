@@ -53,7 +53,8 @@
                         <input class="remove button small" type="submit" value="Remove Vehicle"/>
                     </form>
 
-                    <a class="button small" href="<%= edit_vehicle_url(vehicle) %>">Edit Vehicle</a>
+                    <a class="button small xdf" href="<%= edit_vehicle_url(vehicle) %>">Edit Vehicle</a>
+
                 </div>
             </li>
         <% end %>
@@ -68,6 +69,11 @@
 <!----------------------------------------------------->
 
 <script>
+
+    // Stopping Event Bubbling
+    $('.xdf').click(function(e){
+        e.stopPropagation();
+    });
 
     // Change URL to vehicle show page on click
     $('.vehicle-items').click( (data) => {

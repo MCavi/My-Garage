@@ -1,6 +1,6 @@
 <div class="vehicle-form-wrapper">
 
-    <form class="vehicle-form" action="<%= vehicle_url(@vehicle) %>" method="POST">
+    <form class="vehicle-form" action="<%= vehicle_url(@vehicle) %>">
 
         <h1><%= @vehicle.year %> <%= @vehicle.make %> <%= @vehicle.model %></h1>
 
@@ -32,7 +32,7 @@
     </form>
 
     <div class="back-button-wrapper">
-        <a href="<%= vehicles_url %>">Back to your garage</a>
+        <a class="back-button button" href="<%= vehicles_url %>">Back to your garage</a>
     </div>
 
 </div>
