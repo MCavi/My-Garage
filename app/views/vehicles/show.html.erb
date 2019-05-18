@@ -65,7 +65,7 @@
                         <input class="my-remove remove button small" type="submit" value="Remove"/>
                     </form>
 
-                    <a class="auth-submit button small" href="<%= edit_vehicle_maintenance_item_url(@vehicle, maintenance) %>">Edit</a>
+                    <a class="auth-submit button small xdf" href="<%= edit_vehicle_maintenance_item_url(@vehicle, maintenance) %>">Edit</a>
 
             </div>
         </div>
@@ -80,6 +80,11 @@
 
 <!----------- JQuery --------------->
 <script>
+
+    // Stopping Event Bubbling
+    $('.xdf').click(function(e){
+        e.stopPropagation();
+    });
 
     $('.maintenance-items').click( (data) => {
         const maintenance_id = parseInt(data.currentTarget.id);
