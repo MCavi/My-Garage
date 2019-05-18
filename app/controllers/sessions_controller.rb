@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
       redirect_to vehicles_url
     else
       flash.now[:errors] = ['Invalid email or password']
+      render :new
     end
   end
 
