@@ -1,27 +1,33 @@
-<h2 class="auth-h2">Sign In</h2>
+<div class="grid-x main">
 
-<form class="auth-form" action="<%= session_url %>" method="POST">
+    <div class="auth-form large-6 large-offset-3 medium-8 medium-offset-2 small-10 small-offset-1 cell">
 
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <h3 class="auth-h2">Log In</h3>
 
-    <div class="row">
+        <form class="" action="<%= session_url %>" method="POST">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-        <div class="small-5">
             <label for="email">Email
                 <input type="text" name="user[email]" id="email" value="">
             </label>
-        </div>
 
-        <div class="small-5">
             <label for="password">Password
                 <input type="password" name="user[password]" id="password" value="">
             </label>
-        </div>
 
+            <input class="auth-submit expanded button" type="submit" value="Log In">
+
+        </form>
+
+        <div class="auth-switch">Don't have an account? <a href="<%= new_user_url %>">Sign Up!</a></div>
     </div>
 
-    <input class="auth-submit button" type="submit" value="Sign In">
+</div>
 
-</form>
 
-<div class="auth-switch">Don't have an account? <a href="<%= new_user_url %>">Sign Up!</a></div>
+
+
+
+
+
+

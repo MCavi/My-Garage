@@ -32,7 +32,6 @@
 .auth-h2 {
     text-align: center;
     margin: auto;
-    padding-top: 5%;
     font-weight: 500;
 }
 
@@ -48,6 +47,8 @@
 .auth-submit.button {
     border-radius: 4px;
     margin: auto;
+    margin-top: 32px;
+    margin-bottom: 18px;
 }
 
 .my-remove.button {
