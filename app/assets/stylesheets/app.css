@@ -2,22 +2,6 @@
     border-radius: 5px;
 }
 
-#error-modal {
-    position: absolute;
-    width: 100%;
-    margin-top: 25%;
-    z-index: 9;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.errors-wrapper {
-    display: flex;
-    justify-content: start;
-    flex-direction: column;
-}
-
 /* ——————————————————————————————— */
 /* ———————————— USER AUTH —————————————*/
 /* ——————————————————————————————— */
