@@ -40,29 +40,38 @@
 
 
 <!-- Creating vehicle grid -->
-<div class="grid-container ">
+<div class="grid-container">
     <div class="grid-x grid-margin-x">
 
         <% @vehicles.map do |vehicle| %>
             <div class="large-4 medium-6 small-12 cell vehicle-items" id="<%= vehicle.id %>">
 
                 <!-- Top row of vehicle item -->
-                <div class="grid-x">
+                <div class="grid-x ">
                     <div class="small-10 small-offset-1 cell">
-                        <h3>
+                        <h4 class="my-h4">
                             <a class="vehicle-link" href="<%= vehicle_url(vehicle) %>"><%= vehicle.year %> <%= vehicle.make %> <%= vehicle.model %></a>  
-                        </h3>
+                        </h4>
                     </div>
                 </div>
 
                 <!-- Bottom row of vehicle item -->
-                <div class="grid-x">
-                    <div class="small-6 cell">
-                        edit
-                    </div>
+                <div class="grid-container">
+                    <div class="grid-x">
 
-                    <div class="small-6 cell">
-                        sell                    
+                        <!-- .flex-container and .align-center centers content in foundation cell -->
+                        <div class="flex-container align-center small-6 cell">
+                            <a class="button small xdf" href="<%= edit_vehicle_url(vehicle) %>">Edit Vehicle</a>                                            
+                        </div>
+
+                        <div class="flex-container align-center small-6 cell">
+                            <form action="<%= vehicle_url(vehicle) %>" method="POST">
+                                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input class="remove button small" type="submit" value="Remove Vehicle"/>
+                            </form>
+                        </div>
+
                     </div>
                 </div>
 

@@ -1,4 +1,4 @@
-.button {
+.button.small {
     border-radius: 5px;
 }
 
@@ -17,6 +17,12 @@
     text-align: center;
     margin: auto;
     font-weight: 500;
+}
+
+.my-h4 {
+    text-align: center;
+    margin: auto;
+    margin-bottom: 12px;
 }
 
 .auth-form {
@@ -83,9 +89,8 @@
 .vehicle-items {
     list-style: none;
     width: 85%;
-    padding: 2%;
+    padding: 1%;
     border: 1px black solid;
-    box-shadow: 3px 3px 3px grey;
     border-radius: 5px;
     margin-top: 2%;
     margin-bottom: 2%;
@@ -93,6 +98,7 @@
 
 .vehicle-items:hover {
     cursor: pointer;
+    box-shadow: 3px 3px 3px grey;
 }
 
 .vehicle-item-bottom-row {
