@@ -1,41 +1,42 @@
-<div class="vehicle-form-wrapper">
+ <div class="grid-container">
 
+    <div class="grid-x">
+        <div class="large-6 large-offset-3 medium-8 medium-offset-2 small-10 small-offset-1 cell">
+            <form class="vehicle-form" action="<%= vehicle_url(@vehicle) %>" method="POST">
 
+                <h4 class="my-h4"><%= @vehicle.year %> <%= @vehicle.make %> <%= @vehicle.model %></h4>
 
-    <form class="vehicle-form" action="<%= vehicle_url(@vehicle) %>" method="POST">
+                <input type="hidden" name="authenticity_token" value= "<%= form_authenticity_token %>">
+                <input type="hidden" name="_method" value="PATCH">
 
-        <h1><%= @vehicle.year %> <%= @vehicle.make %> <%= @vehicle.model %></h1>
+                <label for="year">Year
+                    <input type="number" name="vehicle[year]" value="<%= @vehicle.year %>" id="year">
+                </label>
 
-        <input type="hidden" name="authenticity_token" value= "<%= form_authenticity_token %>">
-        <input type="hidden" name="_method" value="PATCH">
+                <label for="make">Make
+                    <input type="text" name="vehicle[make]" value="<%= @vehicle.make %>" id="make">
+                </label>
 
-        <label for="year">Year
-            <input type="number" name="vehicle[year]" value="<%= @vehicle.year %>" id="year" placeholder="Enter Year">
-        </label>
+                <label for="model">Model
+                    <input type="text" name="vehicle[model]" value="<%= @vehicle.model %>" id="model">
+                </label>
 
-        <label for="make">Make
-            <input type="text" name="vehicle[make]" value="<%= @vehicle.make %>" id="make" placeholder="Enter Make">
-        </label>
+                <label for="vin">VIN
+                    <input type="text" name="vehicle[vin]" value="<%= @vehicle.vin %>" id="vin">
+                </label>
 
-        <label for="model">Model
-            <input type="text" name="vehicle[model]" value="<%= @vehicle.model %>" id="model" placeholder="Enter Model">
-        </label>
+                <label for="mileage">Mileage
+                    <input type="number" name="vehicle[mileage]" value="<%= @vehicle.mileage %>" id="mileage">
+                </label>
 
-        <label for="vin">VIN
-            <input type="text" name="vehicle[vin]" value="<%= @vehicle.vin %>" id="vin" placeholder="Enter VIN">
-        </label>
+                <input class="button expanded" type="submit" value="Update">
+            
+            </form>
 
-        <label for="mileage">Mileage
-            <input type="number" name="vehicle[mileage]" value="<%= @vehicle.mileage %>" id="mileage" placeholder="Enter Current Mileage">
-        </label>
+            <div class="back-button-wrapper">
+                <a class="back-button button" href="<%= vehicles_url %>">Back to your garage</a>
+            </div>
 
-        <input class="button medium" type="submit" value="Update">
-        
-    </form>
-
-    <div class="back-button-wrapper">
-        <a class="back-button button" href="<%= vehicles_url %>">Back to your garage</a>
+        </div>
     </div>
-
-
 </div>

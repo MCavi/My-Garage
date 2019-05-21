@@ -1,27 +1,22 @@
 $(document).foundation()
 
-$(document).ready(() => {
-    
-    
-    // click listener to link back to garage page
-    $("#garage").click(() => {
+// click listener to link back to garage page
+$(document).on("click", "#garage", () => {
         window.location.href = "/vehicles"
     });
 
-
+$(document).on("click", '.vehicle-items', (data) => {
     // Change URL to vehicle show page on click
-    $('.vehicle-items').click((data) => {
         vehicleId = parseInt(data.currentTarget.id);
         window.location.href = `/vehicles/${vehicleId}`;
     });
 
+// Stop Event Bubbling when clicking child element
+$(document).on("click", '.xdf', function (e) {
+    e.stopPropagation();
+});
 
-
-    // Stop Event Bubbling when clicking child element
-    $('.xdf').click(function (e) {
-        e.stopPropagation();
-    });
-
+$(document).ready(() => {
     // Using jquery autocomplete to search through an array
     // of possible vehilce makes 
     $(function ($) {
@@ -60,8 +55,8 @@ $(document).ready(() => {
         "Mazda",
         "Lexus",
         "Subaru"];
+;})
 
 
-        
-});
+
 
