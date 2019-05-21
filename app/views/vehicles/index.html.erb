@@ -1,7 +1,7 @@
 <h1 class="index-title">Your Garage</h1>
 
 <div class="modal-button-wrapper">
-    <p><a href="#vehicleModal" rel="modal:open">Add Vehicle</a></p>
+    <p><a class="button" href="#vehicleModal" rel="modal:open">Add Vehicle</a></p>
 </div>
 
 
@@ -18,9 +18,7 @@
         </label>
 
         <label for="make">Make
-            <div class = "ui-widget">
-                <input type="text" name="vehicle[make]" value="" id="make" placeholder="Enter Make">
-            </div>
+            <input type="text" name="vehicle[make]" value="" id="make" placeholder="Enter Make">
         </label>
 
         <label for="model">Model
@@ -35,12 +33,49 @@
             <input type="number" name="vehicle[mileage]" value="" id="mileage" placeholder="Enter Current Mileage">
         </label>
 
-        <input type="submit" class="auth-submit button" value="submit">
+        <input type="submit" class="auth-submit expanded button" value="Add Vehicle">
         
     </form>
 </div>
 
-<!-- Creating list elements for each vehicle -->
+
+<!-- Creating vehicle grid -->
+<div class="grid-container ">
+    <div class="grid-x grid-margin-x">
+
+        <% @vehicles.map do |vehicle| %>
+            <div class="large-4 medium-6 small-12 cell vehicle-items" id="<%= vehicle.id %>">
+
+                <!-- Top row of vehicle item -->
+                <div class="grid-x">
+                    <div class="small-10 small-offset-1 cell">
+                        <h3>
+                            <a class="vehicle-link" href="<%= vehicle_url(vehicle) %>"><%= vehicle.year %> <%= vehicle.make %> <%= vehicle.model %></a>  
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Bottom row of vehicle item -->
+                <div class="grid-x">
+                    <div class="small-6 cell">
+                        edit
+                    </div>
+
+                    <div class="small-6 cell">
+                        sell                    
+                    </div>
+                </div>
+
+
+            </div>
+        <% end %>
+
+    </div>
+</div>
+
+
+
+
 <div class="vehicle-items-list-wrapper">
     <ul class="vehicle-items-list">
         <% @vehicles.map do |vehicle| %>
@@ -80,7 +115,7 @@
     });
 
     // Array of some vehicle makes
-    var vehicleMakes = [
+    const vehicleMakes = [
             "Audi",
             "Aston Martin",
             "Alfa Romeo",
@@ -102,7 +137,8 @@
             "Toyota",
             "Honda",
             "Mazda",
-            "Lexus"];
+            "Lexus",
+            "Subaru"];
 
     // Using jquery autocomplete to search through an array
     // of possible vehilce makes 
