@@ -1,5 +1,10 @@
 .button.small {
     border-radius: 5px;
+
+}
+
+#garage:hover {
+    cursor: pointer;
 }
 
 /* ——————————————————————————————— */
@@ -67,6 +72,7 @@
 .modal-button-wrapper {
     display: flex;
     justify-content: center;
+    margin-bottom: 8px;
 }
 
 .vehicle-form-wrapper.reveal {

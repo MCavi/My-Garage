@@ -1,6 +1,6 @@
 
 <div class="modal-button-wrapper">
-    <p><a class="button" href="#vehicleModal" rel="modal:open">Add Vehicle</a></p>
+    <p style="margin: 0;"><a style="margin: 0;border-radius: 5px;" class="button" href="#vehicleModal" rel="modal:open">Add Vehicle</a></p>
 </div>
 
 
@@ -81,60 +81,6 @@
     </div>
 </div>
 
-
-
-
-<script >
-
-    // Stop Event Bubbling when clicking child element
-    $('.xdf').click(function(e){
-        e.stopPropagation();
-    });
-
-    // Change URL to vehicle show page on click
-    $('.vehicle-items').click( (data) => {
-        vehicleId = parseInt(data.currentTarget.id);
-        window.location.href = `/vehicles/${vehicleId}`;
-    });
-
-    // Array of some vehicle makes
-    const vehicleMakes = [
-            "Audi",
-            "Aston Martin",
-            "Alfa Romeo",
-            "Bentley", 
-            "BMW",
-            "Mercedes-Benz",
-            "Ferrari",
-            "Jaguar",
-            "Volkswagen",
-            "Porsche",
-            "Sabb",
-            "Volvo",
-            "Fiat",
-            "Ford",
-            "Jeep",
-            "GMC",
-            "Tesla",
-            "Nissan",
-            "Toyota",
-            "Honda",
-            "Mazda",
-            "Lexus",
-            "Subaru"];
-
-    // Using jquery autocomplete to search through an array
-    // of possible vehilce makes 
-    $(function($) {
-        $("#make").autocomplete({
-            source: vehicleMakes,
-            
-            // autofocus selects first menu item by default
-            autoFocus: true,
-        });
-    });
-
-</script>
 
 
 

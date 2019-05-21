@@ -59,12 +59,12 @@
           </div>
 
           <div class="flex-container text-center align-center small-6 cell">
-            <h4 style="margin-bottom: 0;">Your Garage</h4>
+            <h4 id="garage" style="margin-bottom: 0;">Your Garage</h4>
           </div>
 
           <!-- right side of navbar -->
           <div class="flex-container text-center align-center small-3 cell">
-            <%= link_to "Log Out", "session", :method => :delete, :data => {:confirm => "Log Out?"} %>
+            <%= link_to "Log Out", "session", :method => :delete, :data => {:confirm => "Are you sure you want to log out?"} %>
           </div>
         
         </div>
@@ -97,9 +97,6 @@
     <% end %>
 
     <%= yield %>
-
-  
-
 
   </body>
 </html>
