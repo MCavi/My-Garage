@@ -1,4 +1,4 @@
-
+<!----------- button to launch modal to add a new vehicle --------------->
 <div class="modal-button-wrapper">
     <p style="margin: 0;"><a style="margin: 0;border-radius: 5px;" class="button" href="#vehicleModal" rel="modal:open">Add Vehicle</a></p>
 </div>
@@ -49,7 +49,7 @@
                 <div class="grid-x ">
                     <div class="small-10 small-offset-1 cell">
                         <h4 class="my-h4">
-                            <a class="vehicle-link" href="<%= vehicle_url(vehicle) %>"><%= vehicle.year %> <%= vehicle.make %> <%= vehicle.model %></a>  
+                            <a><%= vehicle.year %> <%= vehicle.make %> <%= vehicle.model %></a>  
                         </h4>
                     </div>
                 </div>
@@ -70,14 +70,10 @@
                                 <input class="remove button small" type="submit" value="Remove Vehicle"/>
                             </form>
                         </div>
-
                     </div>
                 </div>
-
-
             </div>
         <% end %>
-
     </div>
 </div>
 

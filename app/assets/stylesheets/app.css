@@ -1,6 +1,17 @@
+
 .button.small {
     border-radius: 5px;
+}
 
+.add.button {
+    background: whitesmoke;
+    color: #1779ba
+}
+
+.add.button:hover {
+    cursor: pointer;
+    color: white;
+    background: rgb(136, 189, 136);
 }
 
 #garage:hover {
@@ -11,9 +22,10 @@
 /* ———————————— USER AUTH —————————————*/
 /* ——————————————————————————————— */
 
-.navbar.grid-container {
-    margin-top: 10px;
-    margin-bottom: 10px;
+.navbar.grid-x {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: whitesmoke;
 }
 
 .current-user-wrapper {
@@ -39,9 +51,11 @@
     width: 80%;
     margin: 5% auto;
     padding: 3%;
-    border: 1px grey solid;
+    border: 1px black solid;
     border-radius: 4px;
-    box-shadow: 5px 5px 5px grey;
+    box-shadow: 5px 5px 5px black;
+    background: whitesmoke;
+
 }
 
 .auth-submit.button {
@@ -84,19 +98,6 @@
     padding: 1%;
 }
 
-.vehicle-items-list-wrapper {
-    display: flex;
-    justify-content: center;
-}
-
-.vehicle-items-list {
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .vehicle-items {
     list-style: none;
     width: 85%;
@@ -105,82 +106,40 @@
     border-radius: 5px;
     margin-top: 2%;
     margin-bottom: 2%;
+    background: whitesmoke;
 }
 
 .vehicle-items:hover {
     cursor: pointer;
-    box-shadow: 3px 3px 3px grey;
-}
-
-.vehicle-item-bottom-row {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-evenly;
+    box-shadow: 3px 3px 3px black;
 }
 
 .remove.button.small {
     background: red;
 }
 
-.vehicle-link {
-    color: black;
-
-}
-
-.vehicle-link:hover {
-    cursor: pointer;
-    color: black;
-}
 
 /* ——————————————————————————————— */
 /* —————— MAINTENANCE ITEMS ———————*/
 /* ——————————————————————————————— */
 
-.maintenance-items-wrapper {
-    margin: 3% auto;
-    width: 90%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
 .maintenance-items {
-    width: 100%;
-    padding: 2%;
+    width: 85%;
+    padding: 1%;
     border: 1px black solid;
-    box-shadow: 3px 3px 3px grey;
     border-radius: 5px;
     margin-top: 2%;
     margin-bottom: 2%;
-    display: flex;
-    flex-direction: row;
+    background: whitesmoke;
+
 }
 
 .maintenance-items:hover {
     cursor: pointer;
+    box-shadow: 3px 3px 3px black;
+
 }
 
-.maintenance-left {
-    display: flex;
-    flex-direction: column;
-    width: 85%;
-}
-
-.maintenance-item-title {
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.maintenance-item-start {
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.maintenance-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 /* ——————————————————————————————— */
 /* —————— MAINTENANCE ITEM SHOW ———————*/
@@ -212,3 +171,6 @@
 }
 
 
+body {
+    background: #1779ba;
+}

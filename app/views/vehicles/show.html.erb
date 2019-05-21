@@ -3,7 +3,7 @@
 
 <!----------- button to launch modal to add maintenance --------------->
 <div class="modal-button-wrapper">
-    <p><a href="#serviceModal" rel="modal:open">Add Maintenance</a></p>
+    <p style="margin: 0;"><a style="margin: 0;border-radius: 5px;" class="add button"href="#serviceModal" rel="modal:open">Add Maintenance</a></p>
 </div>
 
 <!----------- Modal to add a new maintenance --------------->
@@ -34,45 +34,75 @@
             <input type="number" name="maintenance_item[cost]" value="" id="cost" placeholder="Add Cost">
         </label>
 
-        <input type="submit"  class="auth-submit button" value="Add Maintenance">
+        <input type="submit"  class="auth-submit expanded button" value="Add Maintenance">
         
     </form>
 </div>
 
 
 <!-- Creating list elements for each maintenance item -->
-<div class="maintenance-items-wrapper" id="maintenance-items-wrapper">
+<div class="grid-container">
+    
+
     <% @vehicle.maintenance_items.map do |maintenance| %>
-        <div class="maintenance-items" id="<%= maintenance.id %>">
-            <a href="#vehicleModal" rel="modal:open"></a>
-            
-            <div class="maintenance-left">
-                <div >
-                    <div class="maintenance-item-title" data="Hello"><%= maintenance.title %></div>
-                </div>
-                <div>
-                    <div> Date: <%= maintenance.date_preformed %></div>
-                </div>
-                <div>
-                    <div>Miles: <%= maintenance.current_mileage %></div>
+
+        <div style="border:1px solid black;" class="grid-x grid-margin-x">
+
+            <div class="flex-container align-center small-12 cell">
+                <h4 class="my-h4">
+                    <a><%= maintenance.title %></a>  
+                </h4>
+            </div>
+
+            <div class="small-12 large-3 cell">
+                on <%= maintenance.date_preformed %>
+            </div>
+
+            <div class="small-12 large-3 cell">
+                $<%= maintenance.cost %>
+            </div>
+
+            <div class="small-12 large-3 cell">
+                <a class="button small xdf" href="<%= edit_vehicle_maintenance_item_url(@vehicle, maintenance) %>">Edit</a>                                            
+            </div>
+
+        </div>
+
+
+
+
+        <div class="maintenance-items large-4 medium-6 small-12 cell" id="<%= maintenance.id %>">
+
+            <!-- Top Row -->
+            <div class="grid-x">
+                <div class="small-10 small-offset-1 cell">
+                    <h4 class="my-h4">
+                        <a><%= maintenance.title %></a>  
+                    </h4>
                 </div>
             </div>
-            <div class="maintenance-right">
 
-                    <form action="<%= vehicle_maintenance_item_url(@vehicle, maintenance) %>" method="POST">
-                        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <input class="my-remove remove button small" type="submit" value="Remove"/>
-                    </form>
+            <!-- Bottom Row -->
+            <div class="grid-container">
+                <div class="grid-x">
 
-                    <a class="auth-submit button small xdf" href="<%= edit_vehicle_maintenance_item_url(@vehicle, maintenance) %>">Edit</a>
+                    <div class="flex-container align-center small-6 cell">
+                        <a class="button small xdf" href="<%= edit_vehicle_maintenance_item_url(@vehicle, maintenance) %>">Edit</a>                                            
+                    </div>
 
+                    <div class="flex-container align-center small-6 cell">
+                        <form action="<%= vehicle_maintenance_item_url(@vehicle, maintenance) %>" method="POST">
+                            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input class="remove button small" type="submit" value="Remove"/>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     <% end %>
+
 </div>
-
-
 
 <div class="back-button-wrapper">
     <a class="auth-submit button" href="<%= vehicles_url %>">Back to your garage</a>
