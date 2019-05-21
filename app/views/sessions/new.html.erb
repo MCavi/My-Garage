@@ -4,15 +4,15 @@
 
         <h3 class="auth-h2">Log In</h3>
 
-        <form class="" action="<%= session_url %>" method="POST">
+        <form action="<%= session_url %>" method="POST">
             <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
             <label for="email">Email
-                <input type="text" name="user[email]" id="email" value="">
+                <input type="text" name="user[email]" id="email" value="" placeholder="Enter Email Address">
             </label>
 
             <label for="password">Password
-                <input type="password" name="user[password]" id="password" value="">
+                <input type="password" name="user[password]" id="password" value="" placeholder="Enter a Password">
             </label>
 
             <input class="auth-submit expanded button" type="submit" value="Log In">

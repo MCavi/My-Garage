@@ -1,39 +1,34 @@
-<h2 class="auth-h2">Sign Up</h2>
+<div class="grid-x main">
 
-<form class="auth-form" action="<%= users_url %>" method="POST">
+    <div class="auth-form large-6 large-offset-3 medium-8 medium-offset-2 small-10 small-offset-1 cell">
 
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <h3 class="auth-h2">Sign Up</h3>
 
-    <div class="row">
+        <form action="<%= users_url %>" method="POST">
+        
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-        <div class="small-5">
             <label for="email">Email
-                <input type="text" name="user[email]" id="email" value="">
+                <input type="text" name="user[email]" id="email" value="" placeholder="Enter Email Address">
             </label>
-        </div>
 
-        <div class="small-5">
             <label for="first_name">First Name
-                <input type="text" name="user[first_name]" id="first_name" value="">
+                <input type="text" name="user[first_name]" id="first_name" value="" placeholder="Enter First Name">
             </label>
-        </div>
 
-        <div class="small-5">
             <label for="last_name">Last Name
-                <input type="text" name="user[last_name]" id="last_name" value="">
+                <input type="text" name="user[last_name]" id="last_name" value="" placeholder="Enter Last Name">
             </label>
-        </div>
 
-        <div class="small-5">
             <label for="password">Password
-                <input type="password" name="user[password]" id="password" value="">
+                <input type="password" name="user[password]" id="password" value="" placeholder="Enter a Password">
             </label>
-        </div>
 
+            <input class="auth-submit expanded button" type="submit" value="Sign Up" placeholder="Enter Email Address">
+
+        </form>
+
+        <div class="auth-switch">Already have an account? <a href="<%= new_session_url %>">Log In!</a></div>
     </div>
 
-    <input class="auth-submit button" type="submit" value="Sign In">
-
-</form>
-
-<div class="auth-switch">Already have an account? <a href="<%= new_session_url %>">Log In!</a></div>
+</div>
