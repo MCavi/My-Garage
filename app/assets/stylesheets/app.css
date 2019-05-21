@@ -6,6 +6,11 @@
 /* ———————————— USER AUTH —————————————*/
 /* ——————————————————————————————— */
 
+.navbar.grid-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .current-user-wrapper {
     display: flex;
     justify-content: space-around;

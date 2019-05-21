@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>My Garage</title>
+    <title>The Garage App</title>
     <%= favicon_link_tag asset_path('default-thumbnail.png') %>
 
     <%= stylesheet_link_tag    "application" %>
@@ -27,7 +27,7 @@
 
     <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
-    <!-- jquery migrate 3.0 conflicts foundation -->
+    <!-- jQuery migrate 3.0 conflicts foundation -->
     <!-- using older migrate version -->
     <script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script> 
 
@@ -49,11 +49,25 @@
 
 
     <% if logged_in? %>
-      <div class="current-user-wrapper">
-        <h3>
-          Welcome, <%= current_user.first_name %>!
-        </h3>
-        <%= link_to "Log Out", "session", :method => :delete, :data => {:confirm => "Log Out?"} %>
+      <!-- Mini navbar -->
+      <div class="navbar grid-container">
+        <div class="grid-x ">  
+
+          <!-- left side of navbar -->
+          <div class="flex-container text-center align-center small-3 cell">
+            <h5 style="margin-bottom: 0;">Welcome, <%= current_user.first_name %>!</h5>
+          </div>
+
+          <div class="flex-container text-center align-center small-6 cell">
+            <h4 style="margin-bottom: 0;">Your Garage</h4>
+          </div>
+
+          <!-- right side of navbar -->
+          <div class="flex-container text-center align-center small-3 cell">
+            <%= link_to "Log Out", "session", :method => :delete, :data => {:confirm => "Log Out?"} %>
+          </div>
+        
+        </div>
       </div>
     <% end %>
 

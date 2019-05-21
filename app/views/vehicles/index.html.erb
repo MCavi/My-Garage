@@ -1,4 +1,3 @@
-<h1 class="index-title">Your Garage</h1>
 
 <div class="modal-button-wrapper">
     <p><a class="button" href="#vehicleModal" rel="modal:open">Add Vehicle</a></p>
@@ -80,31 +79,6 @@
         <% end %>
 
     </div>
-</div>
-
-
-
-
-<div class="vehicle-items-list-wrapper">
-    <ul class="vehicle-items-list">
-        <% @vehicles.map do |vehicle| %>
-            <li class="vehicle-items" id="<%= vehicle.id %>" >
-                <h2 class="auth-h2">
-                    <a class="vehicle-link" href="<%= vehicle_url(vehicle) %>"><%= vehicle.year %> <%= vehicle.make %> <%= vehicle.model %></a>  
-                </h2>
-                <div class="vehicle-item-bottom-row">
-                    <form action="<%= vehicle_url(vehicle) %>" method="POST">
-                        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <input class="remove button small" type="submit" value="Remove Vehicle"/>
-                    </form>
-
-                    <a class="button small xdf" href="<%= edit_vehicle_url(vehicle) %>">Edit Vehicle</a>
-
-                </div>
-            </li>
-        <% end %>
-    </ul>
 </div>
 
 
