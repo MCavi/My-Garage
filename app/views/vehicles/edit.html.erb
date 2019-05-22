@@ -1,4 +1,5 @@
- <div class="grid-container">
+
+<div class="grid-container">
 
     <div class="grid-x">
         <div class="large-6 large-offset-3 medium-8 medium-offset-2 small-10 small-offset-1 cell">
@@ -29,12 +30,12 @@
                     <input type="number" name="vehicle[mileage]" value="<%= @vehicle.mileage %>" id="mileage">
                 </label>
 
-                <input class="confirm button expanded" type="submit" value="Update">
+                <input class="button expanded" type="submit" value="Update">
             
             </form>
 
             <div class="back-button-wrapper">
-                <a class="add button button" href="<%= vehicles_url %>">Back to your garage</a>
+                <a class="button small" href="/vehicles/<%= @vehicle.id %>">Back</a>
             </div>
 
         </div>

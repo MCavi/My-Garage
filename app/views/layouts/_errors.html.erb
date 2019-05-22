@@ -1,17 +1,18 @@
-      <div class="grid-x">
-        <div class="large-6 large-offset-3 medium-8 medium-offset-2 small-10 small-offset-1 cell">
-          <div id="error-modal" class="callout alert small" data-closable>
 
-            <h4>Something went wrong...</h4>
-          
-              <% flash[:errors].map do |error| %>
-                <div><%= error %></div>
-              <% end %>
+<div class="grid-x">
+  <div class="large-6 large-offset-3 medium-8 medium-offset-2 small-10 small-offset-1 cell">
+    <div id="error-modal" class="callout alert small" data-closable>
 
-            <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-              <span aria-hidden="true">&times;</span>
-            </button>
+      <h4>Something went wrong...</h4>
+    
+        <% flash[:errors].map do |error| %>
+          <div><%= error %></div>
+        <% end %>
 
-          </div>
-        </div>
-      </div>
+      <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+    </div>
+  </div>
+</div>
