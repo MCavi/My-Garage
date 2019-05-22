@@ -6,7 +6,9 @@
 
     <title>The Garage App</title>
     <%= favicon_link_tag asset_path('default-thumbnail.png') %>
-
+    
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
@@ -29,9 +31,6 @@
     <!-- using older migrate version -->
     <script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script> 
 
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag    "application" %>
-
     <script>
       console.log(`
     __  ___ ___    ______
@@ -46,6 +45,8 @@
   </head>
 
   <body>
+
+  <div class="main">
 
 
     <% if logged_in? %>
@@ -95,6 +96,7 @@
     <% end %>
 
     <%= yield %>
+  </div>
 
   </body>
 </html>

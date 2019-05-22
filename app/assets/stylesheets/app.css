@@ -1,17 +1,39 @@
+.main {
+    background-image: url(carl-newton-139379-unsplash.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
 
 .button.small {
     border-radius: 5px;
 }
 
 .add.button {
+    margin-top: 8px;
     background: whitesmoke;
-    color: #1779ba
+    color: black;
+    border-radius: 5px;
+}
+
+.confirm.button {
+    border-radius: 5px;
+    background: white;
+    color: black;
+}
+
+.confirm.button:hover {
+    cursor: pointer;
+    background: rgb(178, 216, 178);
 }
 
 .add.button:hover {
     cursor: pointer;
-    color: white;
+    color: whitesmoke;
     background: rgb(136, 189, 136);
+    cursor: pointer;
 }
 
 #garage:hover {
@@ -49,7 +71,7 @@
 
 .auth-form {
     width: 80%;
-    margin: 5% auto;
+    margin: auto;
     padding: 3%;
     border: 1px black solid;
     border-radius: 4px;
@@ -106,12 +128,13 @@
     border-radius: 5px;
     margin-top: 2%;
     margin-bottom: 2%;
-    background: whitesmoke;
+    background: white;
 }
 
 .vehicle-items:hover {
     cursor: pointer;
     box-shadow: 3px 3px 3px black;
+    background: whitesmoke;
 }
 
 .remove.button.small {
@@ -130,13 +153,14 @@
     border-radius: 5px;
     margin-top: 2%;
     margin-bottom: 2%;
-    background: whitesmoke;
+    background: white;
 
 }
 
 .maintenance-items:hover {
     cursor: pointer;
     box-shadow: 3px 3px 3px black;
+    background: whitesmoke;
 
 }
 
