@@ -1,0 +1,29 @@
+<!------------------------ ----------- ------------------------>
+      <!---------------------------- Tabs --------------------------->
+      <!------------------------ ----------- ------------------------>
+      <div class="grid-container">
+        <div class="grid-x grid-margin-x">
+
+          <div class="cell medium-3">
+            <ul class="vertical tabs" data-tabs id="vehicle-tabs">
+                <% current_user.vehicles.map do |vehicle| %>
+                    <li class="tabs-title"><a href="/vehicles/<%= vehicle.id %>"><%= vehicle.year %> <%= vehicle.make %> <%= vehicle.model %></a></li>
+                <% end %>
+                <!----------- button to launch modal to add a new vehicle --------------->
+              <div class="modal-button-wrapper">
+                <p style="margin-bottom: 0;"><a style="margin-bottom:0;border-radius: 5px;" class="add button" href="#vehicleModal" rel="modal:open">Add Vehicle</a></p>
+              </div>
+
+
+            </ul>
+          </div>
+
+          <div class="cell medium-9">
+            <div class="tabs-content" data-tabs-content="vehicle-tabs">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%= render 'layouts/new_vehicle_form' %>

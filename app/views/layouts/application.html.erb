@@ -45,124 +45,22 @@
   </head>
 
   <body>
+ 
 
-  <div class="main">
+    <div class="main">
 
+      <% if flash[:errors] %>
+        <%= render 'layouts/errors' %>
+      <% end %>
 
-    <% if logged_in? %>
-      
-      <!------------------------ ----------- ------------------------>
-      <!------------------------ Mini navbar ------------------------>
-      <!------------------------ ----------- ------------------------>
-      <div class="navbar grid-x">  
+      <% if logged_in? %>
+        <%= render 'layouts/navbar' %>
+        <%= render 'layouts/vehicle_tabs' %>
+      <% else %> 
+        <%= yield %>
+      <% end %>
 
-        <!-- left side of navbar -->
-        <div class="flex-container text-center align-center small-3 cell">
-          <h5 style="margin-bottom: 0;">Welcome, <%= current_user.first_name %>!</h5>
-        </div>
-
-        <div class="flex-container text-center align-center small-6 cell">
-          <h4 id="garage" style="margin-bottom: 0;">Your Garage</h4>
-        </div>
-
-        <!-- right side of navbar -->
-        <div class="flex-container text-center align-center small-3 cell">
-          <%= link_to "Log Out", "session", :method => :delete, :data => {:confirm => "Are you sure you want to log out?"} %>
-        </div>
-      </div>
-
-      <!------------------------ ----------- ------------------------>
-      <!---------------------------- Tabs --------------------------->
-      <!------------------------ ----------- ------------------------>
-      <div class="grid-container">
-        <div class="grid-x grid-margin-x">
-
-          <div class="cell medium-3">
-            <ul class="vertical tabs" data-tabs id="vehicle-tabs">
-                <% current_user.vehicles.map do |vehicle| %>
-                    <li class="tabs-title"><a href="/vehicles/<%= vehicle.id %>"><%= vehicle.year %> <%= vehicle.make %> <%= vehicle.model %></a></li>
-                <% end %>
-                <!----------- button to launch modal to add a new vehicle --------------->
-              <div class="modal-button-wrapper">
-                <p style="margin-bottom: 0;"><a style="margin-bottom:0;border-radius: 5px;" class="add button" href="#vehicleModal" rel="modal:open">Add Vehicle</a></p>
-              </div>
-
-
-            </ul>
-          </div>
-
-          <div class="cell medium-9">
-            <div class="tabs-content" data-tabs-content="vehicle-tabs">
-              <%= yield %>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% else %> 
-      <%= yield %>
-    <% end %>
-
-    <% if flash[:errors] %>
-
-      <div class="grid-x">
-        <div class="large-6 large-offset-3 medium-8 medium-offset-2 small-10 small-offset-1 cell">
-          <div id="error-modal" class="callout alert small" data-closable>
-
-            <h4>Something went wrong...</h4>
-          
-              <% flash[:errors].map do |error| %>
-                <div><%= error %></div>
-              <% end %>
-
-            <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-              <span aria-hidden="true">&times;</span>
-            </button>
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-    <% end %>
-
-    
-  </div>
+    </div>
 
   </body>
 </html>
-
-<!----------- Form to add a new vehicle --------------->
-<div class="vehicle-form-wrapper modal" id="vehicleModal">
-    <form class="vehicle-form" action="<%= vehicles_url %>" method="POST">
-
-        <h3>Add A Vehicle</h3>
-
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
-        <label for="year">Year
-            <input type="number" name="vehicle[year]" value="" id="year" placeholder="Enter Year">
-        </label>
-
-        <label for="make">Make
-            <input type="text" name="vehicle[make]" value="" id="make" placeholder="Enter Make">
-        </label>
-
-        <label for="model">Model
-            <input type="text" name="vehicle[model]" value="" id="model" placeholder="Enter Model">
-        </label>
-
-        <label for="vin">VIN
-            <input type="text" name="vehicle[vin]" value="" id="vin" placeholder="Enter VIN">
-        </label>
-
-        <label for="mileage">Mileage
-            <input type="number" name="vehicle[mileage]" value="" id="mileage" placeholder="Enter Current Mileage">
-        </label>
-
-        <input type="submit" class="auth-submit expanded button" value="Add Vehicle">
-        
-    </form>
-</div>
-

@@ -1,0 +1,19 @@
+<!------------------------ ----------- ------------------------>
+<!------------------------ Mini navbar ------------------------>
+<!------------------------ ----------- ------------------------>
+<div class="navbar grid-x">  
+
+    <!-- left side of navbar -->
+    <div class="flex-container text-center align-center small-3 cell">
+        <h5 style="margin-bottom: 0;">Welcome, <%= current_user.first_name %>!</h5>
+    </div>
+
+    <div class="flex-container text-center align-center small-6 cell">
+        <h4 id="garage" style="margin-bottom: 0;">Your Garage</h4>
+    </div>
+
+    <!-- right side of navbar -->
+    <div class="flex-container text-center align-center small-3 cell">
+        <%= link_to "Log Out", "session", :method => :delete, :data => {:confirm => "Are you sure you want to log out?"} %>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<!----------- Form to add a new vehicle --------------->
+<div class="vehicle-form-wrapper modal" id="vehicleModal">
+    <form class="vehicle-form" action="<%= vehicles_url %>" method="POST">
+
+        <h3>Add A Vehicle</h3>
+
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+        <label for="year">Year
+            <input type="number" name="vehicle[year]" value="" id="year" placeholder="Enter Year">
+        </label>
+
+        <label for="make">Make
+            <input type="text" name="vehicle[make]" value="" id="make" placeholder="Enter Make">
+        </label>
+
+        <label for="model">Model
+            <input type="text" name="vehicle[model]" value="" id="model" placeholder="Enter Model">
+        </label>
+
+        <label for="vin">VIN
+            <input type="text" name="vehicle[vin]" value="" id="vin" placeholder="Enter VIN">
+        </label>
+
+        <label for="mileage">Mileage
+            <input type="number" name="vehicle[mileage]" value="" id="mileage" placeholder="Enter Current Mileage">
+        </label>
+
+        <input type="submit" class="auth-submit expanded button" value="Add Vehicle">
+        
+    </form>
+</div>
