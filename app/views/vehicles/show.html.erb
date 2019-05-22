@@ -34,9 +34,6 @@
     </div>
 
  
-    <!----------- button to launch modal to add maintenance --------------->
-    <p class="my-p"><a class="button small" href="#serviceModal" rel="modal:open">Add Maintenance</a></p>
-
     <!-- Creating list elements for each maintenance item -->
     <div class="grid-container">
         <% @vehicle.maintenance_items.map do |maintenance| %>
@@ -71,6 +68,10 @@
             </div>
         <% end %>
     </div>
+
+    <!----------- button to launch modal to add maintenance --------------->
+    <p class="my-p"><a class="button small" href="#serviceModal" rel="modal:open">Add Maintenance</a></p>
+
 </div>
 
 

@@ -35,7 +35,7 @@ class VehiclesController < ApplicationController
     def update
         @vehicle = Vehicle.find(params[:id])
         if @vehicle.update(vehicle_params)
-            redirect_to vehicles_url
+            redirect_to vehicle_url(@vehicle)
         else 
             flash.now[:errors] = @vehicle.errors.full_messages
             render :edit
@@ -52,6 +52,5 @@ class VehiclesController < ApplicationController
     def vehicle_params
         params.require(:vehicle).permit(:year, :make, :model, :vin, :mileage)
     end 
-
 
 end 
