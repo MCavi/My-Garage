@@ -1,0 +1,32 @@
+<!----------- Modal to add a new maintenance --------------->
+<div class="vehicle-form-wrapper modal" id="serviceModal">
+    <form class="vehicle-form" action="<%= vehicle_maintenance_items_url(@vehicle) %>" method="POST">
+
+        <h3>Add Maintenance</h3>
+
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+        <label for="title">Title
+            <input type="text" name="maintenance_item[title]" value="" id="title" placeholder="Enter Title">
+        </label>
+
+        <label for="date_preformed">Date Preformed
+            <input type="date" name="maintenance_item[date_preformed]" value="" id="date_preformed" placeholder="Add Date Preformed">
+        </label>
+
+        <label for="current_mileage">Current Mileage
+            <input type="number" name="maintenance_item[current_mileage]" value="" id="current_mileage" placeholder="Add Current Mileage">
+        </label>
+
+        <label for="comment">Comment
+            <input type="text" name="maintenance_item[comment]" value="" id="comment" placeholder="Add Comment">
+        </label>
+
+        <label for="cost">Cost
+            <input type="number" name="maintenance_item[cost]" value="" id="cost" placeholder="Add Cost">
+        </label>
+
+        <input type="submit"  class="auth-submit expanded button" value="Add Maintenance">
+        
+    </form>
+</div>

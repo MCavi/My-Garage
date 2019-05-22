@@ -1,15 +1,22 @@
+
+
 <div style="position: relative;">
+    <!-- vehicle delete button -->
     <button class="vehicle close-button" aria-label="Close alert" type="button" id="<%= @vehicle.id %>">
         <span aria-hidden="true">&times;</span>
     </button>
 
+    <!-- vehicle edit button -->
     <button class="vehicle edit-button" type="button" id="<%= @vehicle.id %>">
         <span><i class="fas fa-cogs" aria-hidden="true"></i></i></span>
     </button>
 
     <h2 class="auth-h2" style="padding-top: 0%;"><%= @vehicle.year %> <%= @vehicle.make %> <%= @vehicle.model %></h2>
 
+
     <div class='maintenance-items-grid grid-container container-padding-y'>
+    
+        <!-- vehicle details header -->
         <div class="grid-x ">
             <div class="service-header flex-container align-center small-6 medium-6 large-6 cell">
                 Current Mileage
@@ -19,6 +26,7 @@
                 VIN
             </div>
         </div>
+
 
         <div class="grid-x">
             <div class="flex-container align-center small-6 medium-6 large-6 cell">
@@ -35,6 +43,8 @@
  
     <!-- Creating list elements for each maintenance item -->
     <div class="maintenance-items-grid grid-container">
+
+        <!-- maintenance items header -->
         <div class="grid-x grid-margin-y">
             <div class="service-header small-offset-1 small-4 cell">
                 Date
@@ -43,10 +53,12 @@
             <div class="service-header small-4 end cell">
                 Title
             </div>
-
         </div>
+
+        <!-- listing all maintenance items -->
         <% @vehicle.maintenance_items.map do |maintenance| %>
             <div class="maintenance-items grid-x grid-margin-y" style="position: relative;" id="<%= maintenance.id %>">
+
                 <div class="small-offset-1 small-4 cell">
                     <%= maintenance.date_preformed %>
                 </div>
@@ -55,10 +67,12 @@
                     <%= maintenance.title %>
                 </div>
 
+                <!-- maintenance delete button -->
                 <button class="service close-button" aria-label="Close alert" type="button" id="<%= maintenance.id %>">
                     <span id="<%= @vehicle.id %>" aria-hidden="true">&times;</span>
                 </button>
 
+                <!-- maintenance edit button -->
                 <button class="service edit-button" type="button" id="<%= maintenance.id %>">
                     <span id="<%= @vehicle.id %>"><i class="fas fa-cogs" aria-hidden="true"></i></i></span>
                 </button>
@@ -71,6 +85,9 @@
 
     <!----------- button to launch modal to add maintenance --------------->
     <p class="my-p"><a class="button small" href="#serviceModal" rel="modal:open">Add Maintenance</a></p>
+
+    <!----------- Modal to add a new maintenance --------------->
+    <%= render 'layouts/new_maintenace_form' %>
 
 </div>
 
@@ -147,36 +164,3 @@
     
 
 </script>
-
-<!----------- Modal to add a new maintenance --------------->
-<div class="vehicle-form-wrapper modal" id="serviceModal">
-    <form class="vehicle-form" action="<%= vehicle_maintenance_items_url(@vehicle) %>" method="POST">
-
-        <h3>Add Maintenance</h3>
-
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
-        <label for="title">Title
-            <input type="text" name="maintenance_item[title]" value="" id="title" placeholder="Enter Title">
-        </label>
-
-        <label for="date_preformed">Date Preformed
-            <input type="date" name="maintenance_item[date_preformed]" value="" id="date_preformed" placeholder="Add Date Preformed">
-        </label>
-
-        <label for="current_mileage">Current Mileage
-            <input type="number" name="maintenance_item[current_mileage]" value="" id="current_mileage" placeholder="Add Current Mileage">
-        </label>
-
-        <label for="comment">Comment
-            <input type="text" name="maintenance_item[comment]" value="" id="comment" placeholder="Add Comment">
-        </label>
-
-        <label for="cost">Cost
-            <input type="number" name="maintenance_item[cost]" value="" id="cost" placeholder="Add Cost">
-        </label>
-
-        <input type="submit"  class="auth-submit expanded button" value="Add Maintenance">
-        
-    </form>
-</div>
