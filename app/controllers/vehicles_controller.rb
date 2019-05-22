@@ -18,8 +18,6 @@ class VehiclesController < ApplicationController
     end 
 
     def index 
-        @vehicles = Vehicle.where(user_id: current_user.id)
-        render :index
     end
     
     def show

@@ -7,6 +7,44 @@
     height: 100vh;
 }
 
+.edit-button {
+  position: absolute;
+  color: #8a8a8a;
+  cursor: pointer; }
+  [data-whatinput='mouse'] .edit-button {
+    outline: 0; }
+  .edit-button:hover, .edit-button:focus {
+    color: #0a0a0a; }
+  .edit-button.small {
+    right: 0.66rem;
+    top: 0.33em;
+    font-size: 1.5em;
+    line-height: 1; }
+  .edit-button, .edit-button.medium {
+    right: 1rem;
+    top: 2.7rem;
+    font-size: 1.2em;
+    line-height: 1; }
+
+.service.edit-button {
+  position: absolute;
+  color: #8a8a8a;
+  cursor: pointer; }
+  [data-whatinput='mouse'] .edit-button {
+    outline: 0; }
+  .edit-button:hover, .edit-button:focus {
+    color: #0a0a0a; }
+  .edit-button.small {
+    right: 0.66rem;
+    top: 0.33em;
+    font-size: 1.5em;
+    line-height: 1; }
+  .edit-button, .edit-button.medium {
+    right: 2.5rem;
+    top: 1rem;
+    font-size: 1.2em;
+    line-height: 1; }
+
 .button.small {
     border-radius: 5px;
 }
@@ -153,22 +191,20 @@
 /* —————— MAINTENANCE ITEMS ———————*/
 /* ——————————————————————————————— */
 
-.maintenance-items {
-    width: 85%;
-    padding: 1%;
-    border: 1px black solid;
-    border-radius: 5px;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    background: white;
-
+.maintenance-items-grid.grid-container {
+    margin-top: 36px;
+    margin-bottom: 36px;
 }
 
 .maintenance-items:hover {
     cursor: pointer;
     box-shadow: 3px 3px 3px black;
     background: whitesmoke;
+}
 
+.service-header {
+    font-weight: 550;
+    font-size: 20px;
 }
 
 
