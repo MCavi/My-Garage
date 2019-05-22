@@ -1,10 +1,127 @@
-<h2 class="auth-h2" style="padding-top: 0%;"><%= @vehicle.year %> <%= @vehicle.make %> <%= @vehicle.model %></h2>
+<div style="position: relative;">
+    <button class="close-button" aria-label="Close alert" type="button" id="<%= @vehicle.id %>">
+        <span aria-hidden="true">&times;</span>
+    </button>
+
+    <button class="edit-button" type="button" id="<%= @vehicle.id %>">
+        <span><i class="fas fa-cogs" aria-hidden="true"></i></i></span>
+    </button>
+
+    <h2 class="auth-h2" style="padding-top: 0%;"><%= @vehicle.year %> <%= @vehicle.make %> <%= @vehicle.model %></h2>
+
+    <div class='grid-container container-padding-y'>
+        <div class="grid-x ">
+            <div class="flex-container align-center small-6 medium-6 large-6 cell">
+                <h6 class="my-h6">Current Mileage</h6 class="my-h6">
+            </div>
+
+            <div class="flex-container align-center small-6 medium-6 large-6 cell">
+                <h6 class="my-h6">VIN</h6 class="my-h6">
+            </div>
+
+        </div>
+
+        <div class="grid-x">
+            <div class="flex-container align-center small-6 medium-6 large-6 cell">
+                <div><%= @vehicle.mileage %></div>
+            </div>
+
+            <div class="flex-container align-center small-6 medium-6 large-6 cell">
+                <div><%= @vehicle.vin %></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="grid-x grid-padding-y">
+        <div class="flex-container align-center small-12 cell">
+            <!----------- button to launch modal to add maintenance --------------->
+            <p style="margin:auto;"><a class="success button small" style="margin:auto;" href="#serviceModal" rel="modal:open">Add Maintenance</a></p>
+        </div>
+    </div>
 
 
-<!----------- button to launch modal to add maintenance --------------->
-<div class="modal-button-wrapper">
-    <p style="margin-bottom: 0;"><a style="margin-bottom:0;border-radius: 5px;" class="add button"href="#serviceModal" rel="modal:open">Add Maintenance</a></p>
+
+
+
+    <!-- Creating list elements for each maintenance item -->
+    <div class="grid-container">
+        <% @vehicle.maintenance_items.map do |maintenance| %>
+            <div class="maintenance-items large-4 medium-6 small-12 cell" id="<%= maintenance.id %>">
+
+                <!-- Top Row -->
+                <div class="grid-x">
+                    <div class="small-10 small-offset-1 cell">
+                        <h4 class="my-h4">
+                            <a><%= maintenance.title %></a>  
+                        </h4>
+                    </div>
+                </div>
+
+                <!-- Bottom Row -->
+                <div class="grid-container">
+                    <div class="grid-x">
+
+                        <div class="flex-container align-center small-6 cell">
+                            <a class="button small xdf" href="<%= edit_vehicle_maintenance_item_url(@vehicle, maintenance) %>">Edit</a>                                            
+                        </div>
+
+                        <div class="flex-container align-center small-6 cell">
+                            <form action="<%= vehicle_maintenance_item_url(@vehicle, maintenance) %>" method="POST">
+                                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input class="remove button small" type="submit" value="Remove"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
 </div>
+
+
+<script>
+
+
+    // Stop Event Bubbling when clicking child element    
+    $('.xdf').click(function(e){
+        e.stopPropagation();
+    });
+
+    $('.maintenance-items').click( (data) => {
+        const maintenance_id = parseInt(data.currentTarget.id);
+        const urlArr = window.location.href.split('/');
+        const vehicleId = parseInt(urlArr.pop());
+        window.location.href = `/vehicles/${vehicleId}/maintenance_items/${maintenance_id}`;
+     });
+
+    // Ajax request to remove vehicle when clicking the little 'x' button
+    $(function() {
+        $(document).on('click','.close-button',function(){
+            const velicle_id = $(this).attr("id");
+            if(confirm("Are you sure you want to remove this vehicle?")){
+                $.ajax({
+                    type: "DELETE",
+                    // CSRF authenticity token
+                    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+                    url: `/vehicles/${velicle_id}`,
+                });
+            }
+            return false;
+        });
+    });
+
+    $(function() {
+        $(document).on('click', '.edit-button', function(){
+            const vehicle_id = $(this).attr('id');
+            window.location.href = `/vehicles/${vehicle_id}/edit`
+        });
+    });
+
+    
+
+</script>
 
 <!----------- Modal to add a new maintenance --------------->
 <div class="vehicle-form-wrapper modal" id="serviceModal">
@@ -38,91 +155,3 @@
         
     </form>
 </div>
-
-
-<!-- Creating list elements for each maintenance item -->
-<div class="grid-container">
-    
-
-    <% @vehicle.maintenance_items.map do |maintenance| %>
-
-        <div style="border:1px solid black;" class="grid-x grid-margin-x">
-
-            <div class="flex-container align-center small-12 cell">
-                <h4 class="my-h4">
-                    <a><%= maintenance.title %></a>  
-                </h4>
-            </div>
-
-            <div class="small-12 large-3 cell">
-                on <%= maintenance.date_preformed %>
-            </div>
-
-            <div class="small-12 large-3 cell">
-                $<%= maintenance.cost %>
-            </div>
-
-            <div class="small-12 large-3 cell">
-                <a class="button small xdf" href="<%= edit_vehicle_maintenance_item_url(@vehicle, maintenance) %>">Edit</a>                                            
-            </div>
-
-</div>
-
-
-
-
-        <div class="maintenance-items large-4 medium-6 small-12 cell" id="<%= maintenance.id %>">
-
-            <!-- Top Row -->
-            <div class="grid-x">
-                <div class="small-10 small-offset-1 cell">
-                    <h4 class="my-h4">
-                        <a><%= maintenance.title %></a>  
-                    </h4>
-                </div>
-            </div>
-
-            <!-- Bottom Row -->
-            <div class="grid-container">
-                <div class="grid-x">
-
-                    <div class="flex-container align-center small-6 cell">
-                        <a class="button small xdf" href="<%= edit_vehicle_maintenance_item_url(@vehicle, maintenance) %>">Edit</a>                                            
-                    </div>
-
-                    <div class="flex-container align-center small-6 cell">
-                        <form action="<%= vehicle_maintenance_item_url(@vehicle, maintenance) %>" method="POST">
-                            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <input class="remove button small" type="submit" value="Remove"/>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <% end %>
-
-</div>
-
-<div class="back-button-wrapper">
-    <a class="auth-submit button" href="<%= vehicles_url %>">Back to your garage</a>
-</div>
-
-
-
-<script>
-
-
-    // Stop Event Bubbling when clicking child element    
-    $('.xdf').click(function(e){
-        e.stopPropagation();
-    });
-
-    $('.maintenance-items').click( (data) => {
-        const maintenance_id = parseInt(data.currentTarget.id);
-        const urlArr = window.location.href.split('/');
-        const vehicleId = parseInt(urlArr.pop());
-        window.location.href = `/vehicles/${vehicleId}/maintenance_items/${maintenance_id}`;
-     });
-
-</script>
