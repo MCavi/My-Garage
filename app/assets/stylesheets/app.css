@@ -60,6 +60,10 @@
     text-align: center;
 }
 
+.tabs-a:hover {
+    cursor: pointer;
+}
+
 #garage:hover {
     cursor: pointer;
 }
