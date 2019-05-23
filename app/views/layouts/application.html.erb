@@ -48,24 +48,14 @@
  
     <div class="main">
 
-     
-
       <% if logged_in? %>
-
-        <% if flash[:errors] %>
-          <%= render 'layouts/errors' %>
-        <% end %>
 
         <%= render 'layouts/navbar' %>
         <%= render 'layouts/vehicle_tabs' %>
 
       <% else %> 
 
-        
         <div>
-          <% if flash[:errors] %>
-            <%= render 'layouts/errors' %>
-          <% end %>
           <%= yield %>
         </div>
 

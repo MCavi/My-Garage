@@ -70,7 +70,6 @@ $(function () {
 $(function () {
     $(document).on('click', '.vehicle.close-button', function () {
         const velicle_id = $(this).attr("id");
-        debugger
         if (confirm("Are you sure you want to remove this vehicle?")) {
             $.ajax({
                 type: "DELETE",

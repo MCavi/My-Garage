@@ -12,7 +12,11 @@
 
     <!-- right side of navbar -->
     <div class="flex-container text-center align-center small-3 cell">
-        <%= link_to "Log Out", "session", :method => :delete, :data => {:confirm => "Are you sure you want to log out?"} %>
+        <form action="<%= session_url %>" method="POST">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" class="button small" value="Sign Out">
+        </form>
     </div>
 
 </div>

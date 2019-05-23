@@ -241,7 +241,8 @@
 #error-modal {
     position: absolute;
     z-index: 9;
-    margin: 0 auto;
-    top: calc(50% - (40% / 2));
-	left: calc(50% - (40% / 2));
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
 }

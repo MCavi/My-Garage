@@ -1,15 +1,16 @@
+<% if flash[:errors] %>
+  <div id="error-modal" class="radius panel large-4 small-4 cell small-centered large-centered callout alert" data-closable>
 
-<div id="error-modal" class="callout alert small" data-closable>
+    <h4>Something went wrong...</h4>
 
-  <h4>Something went wrong...</h4>
+      <% flash[:errors].map do |error| %>
+        <div><%= error %></div>
+      <% end %>
 
-    <% flash[:errors].map do |error| %>
-      <div><%= error %></div>
-    <% end %>
+    <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+      <span aria-hidden="true">&times;</span>
+    </button>
 
-  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-    <span aria-hidden="true">&times;</span>
-  </button>
-
-</div>
+  </div>
+<% end %>
 
