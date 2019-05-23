@@ -56,6 +56,11 @@
     margin-top: 14px;
 }
 
+.tabs-a {
+    text-align: center;
+}
+
+
 .confirm.button {
     border-radius: 5px;
     background: white;

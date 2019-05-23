@@ -5,7 +5,7 @@
     <div class="cell medium-3">
       <ul class="vertical tabs" data-tabs id="vehicle-tabs">
         <% current_user.vehicles.map do |vehicle| %>
-            <li class="tabs-title"><a href="/vehicles/<%= vehicle.id %>"><%= vehicle.year %> <%= vehicle.make %> <%= vehicle.model %></a>
+            <li class="my-tabs tabs-title"><a style="font-size: 18px;" class="tabs-a" href="/vehicles/<%= vehicle.id %>"><%= vehicle.year %> <%= vehicle.make %> <%= vehicle.model %></a>
             </li>
         <% end %>
 

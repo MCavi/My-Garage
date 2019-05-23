@@ -15,7 +15,7 @@
 
 
     <div class='maintenance-items-grid grid-container container-padding-y'>
-    
+
         <!-- vehicle details header -->
         <div class="grid-x ">
             <div class="service-header flex-container align-center small-6 medium-6 large-6 cell">
@@ -44,28 +44,48 @@
     <!-- Creating list elements for each maintenance item -->
     <div class="maintenance-items-grid grid-container">
 
-        <!-- maintenance items header -->
-        <div class="grid-x grid-margin-y">
-            <div class="service-header small-offset-1 small-4 cell">
-                Date
-            </div>
+        <% unless @vehicle.maintenance_items.empty? %>
+            <!-- maintenance items header -->
+            <div class="grid-x grid-margin-y">
+                <div class="service-header small-3 cell">
+                    Date
+                </div>
 
-            <div class="service-header small-4 end cell">
-                Title
+                <div class="service-header small-3 end cell">
+                    Title
+                </div>
+
+                <div class="service-header small-3 end cell">
+                    Mileage
+                </div>
+
+                <div class="service-header small-3 end cell">
+                    Cost
+                </div>
+
             </div>
-        </div>
+        <% end %>
 
         <!-- listing all maintenance items -->
         <% @vehicle.maintenance_items.map do |maintenance| %>
             <div class="maintenance-items grid-x grid-margin-y" style="position: relative;" id="<%= maintenance.id %>">
 
-                <div class="small-offset-1 small-4 cell">
+                <div class="small-3 cell">
                     <%= maintenance.date_preformed %>
                 </div>
 
-                <div class="small-4 end cell">
-                    <%= maintenance.title %>
+                <div class="small-3 end cell">
+                    <%= maintenance.title.capitalize %>
                 </div>
+
+                <div class="small-3 cell">
+                    <%= maintenance.current_mileage %>
+                </div>
+
+                <div class="small-3 cell">
+                    <%= maintenance.cost %>
+                </div>
+
 
                 <!-- maintenance delete button -->
                 <button class="service close-button" aria-label="Close alert" type="button" id="<%= maintenance.id %>">
@@ -90,77 +110,3 @@
     <%= render 'layouts/new_maintenace_form' %>
 
 </div>
-
-
-<script>
-
-    // Stop Event Bubbling when clicking child element    
-    //$('.xdf').click(function(e){
-    //    e.stopPropagation();
-    //});
-
-    //$('.maintenance-items').click( (data) => {
-    //    const maintenance_id = parseInt(data.currentTarget.id);
-    //    const urlArr = window.location.href.split('/');
-    //    const vehicleId = parseInt(urlArr.pop());
-    //    window.location.href = `/vehicles/${vehicleId}/maintenance_items/${maintenance_id}`;
-    //});
-    
-    // Remove vehicle when clicking on "X" button
-    $(function() {
-        $(document).on('click','.vehicle.close-button',function(){
-            const velicle_id = $(this).attr("id");
-            if(confirm("Are you sure you want to remove this vehicle?")){
-                $.ajax({
-                    type: "DELETE",
-
-                    // CSRF authenticity token
-                    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-
-                    url: `/vehicles/${velicle_id}`,
-                });
-            }
-            return false;
-        });
-    });
-
-    // edit button renders edit view for vehicle
-    $(function() {
-        $(document).on('click', '.vehicle.edit-button', function(){
-            const vehicle_id = $(this).attr('id');
-            window.location.href = `/vehicles/${vehicle_id}/edit`
-        });
-    });
-
-    
-    // Remove maintenance item when clicking on "X" button
-    $(function() {
-        $(document).on('click','.service.close-button',function(data){
-            const velicle_id = data.currentTarget.children[0].id;
-            const maintenance_id = $(this).attr("id");
-            if(confirm("Are you sure you want to remove this service?")){
-                $.ajax({
-                    type: "DELETE",
-
-                    // CSRF authenticity token
-                    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-
-                    url: `/vehicles/${velicle_id}/maintenance_items/${maintenance_id}`,
-                });
-            }
-            return false;
-        });
-    });
-
-    // edit button renders edit view for vehicle
-    $(function() {
-        $(document).on('click', '.service.edit-button', function(data){
-            const velicle_id = data.currentTarget.children[0].id;
-            const maintenance_id = $(this).attr('id');
-            window.location.href = `/vehicles/${velicle_id}/maintenance_items/${maintenance_id}/edit`
-        });
-    });
-
-    
-
-</script>
