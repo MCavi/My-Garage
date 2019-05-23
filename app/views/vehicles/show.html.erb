@@ -45,44 +45,47 @@
     <div class="maintenance-items-grid grid-container">
 
         <% unless @vehicle.maintenance_items.empty? %>
-            <!-- maintenance items header -->
-            <div class="grid-x grid-margin-y">
-                <div class="service-header small-3 cell">
-                    Date
-                </div>
 
-                <div class="service-header small-3 end cell">
-                    Title
-                </div>
-
-                <div class="service-header small-3 end cell">
-                    Mileage
-                </div>
-
-                <div class="service-header small-3 end cell">
-                    Cost
-                </div>
-
-            </div>
         <% end %>
 
         <!-- listing all maintenance items -->
         <% @vehicle.maintenance_items.map do |maintenance| %>
+
+
+            <div class="grid-x grid-margin-y">
+                <h4 class="my-h4"><%= maintenance.title.capitalize %></h4>
+            </div>
+
+
+            <!-- maintenance items header -->
+            <div class="grid-x">
+
+                <div class="service-header small-4 cell">
+                    Date
+                </div>
+
+                <div class="service-header small-4 end cell">
+                    Mileage
+                </div>
+
+                <div class="service-header small-4 end cell">
+                    Cost
+                </div>
+
+            </div>
+
             <div class="maintenance-items grid-x grid-margin-y" style="position: relative;" id="<%= maintenance.id %>">
 
-                <div class="small-3 cell">
+
+                <div class="small-4 cell">
                     <%= maintenance.date_preformed %>
                 </div>
 
-                <div class="small-3 end cell">
-                    <%= maintenance.title.capitalize %>
-                </div>
-
-                <div class="small-3 cell">
+                <div class="small-4 cell">
                     <%= maintenance.current_mileage %>
                 </div>
 
-                <div class="small-3 cell">
+                <div class="small-4 cell">
                     <%= maintenance.cost %>
                 </div>
 
