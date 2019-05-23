@@ -5,12 +5,6 @@ $(document).on("click", "#garage", () => {
         window.location.href = "/vehicles"
     });
 
-$(document).on("click", '.vehicle-items', (data) => {
-    // Change URL to vehicle show page on click
-        vehicleId = parseInt(data.currentTarget.id);
-        window.location.href = `/vehicles/${vehicleId}`;
-    });
-
 // Stop Event Bubbling when clicking child element
 $(document).on("click", '.xdf', function (e) {
     e.stopPropagation();

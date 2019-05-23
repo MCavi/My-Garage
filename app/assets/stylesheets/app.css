@@ -60,51 +60,15 @@
     text-align: center;
 }
 
-
-.confirm.button {
-    border-radius: 5px;
-    background: white;
-    color: black;
-}
-
-.confirm.button:hover {
-    cursor: pointer;
-    background: rgb(178, 216, 178);
-}
-
-.add.button:hover {
-    cursor: pointer;
-    color: whitesmoke;
-    background: rgb(136, 189, 136);
-    cursor: pointer;
-}
-
 #garage:hover {
     cursor: pointer;
 }
-
-.my-h6 {
-    font-weight: 500;
-    margin-top: 8px;
-    margin-bottom: 0; 
-}
-
-/* ——————————————————————————————— */
-/* ———————————— USER AUTH —————————————*/
-/* ——————————————————————————————— */
 
 .navbar.grid-x {
     padding-top: 10px;
     padding-bottom: 10px;
     background: whitesmoke;
     margin-bottom: 48px;
-}
-
-.current-user-wrapper {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 5%;
-    margin-top: 1%;
 }
 
 .auth-h2 {
@@ -130,7 +94,6 @@
     border-radius: 4px;
     box-shadow: 5px 5px 5px black;
     background: whitesmoke;
-
 }
 
 .auth-submit.button {
@@ -140,28 +103,8 @@
     margin-bottom: 18px;
 }
 
-.my-remove.button {
-    border-radius: 4px;
-    margin: auto;
-}
-
 .auth-switch {
     text-align: center;
-}
-
-/* ——————————————————————————————— */
-/* —————————— VEHILCE INDEX —————————————*/
-/* ——————————————————————————————— */
-
-
-.index-title {
-    text-align:center;
-}
-
-.modal-button-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 8px;
 }
 
 .vehicle-form-wrapper.reveal {
@@ -173,31 +116,6 @@
     padding: 1%;
 }
 
-.vehicle-items {
-    list-style: none;
-    width: 85%;
-    padding: 1%;
-    border: 1px black solid;
-    border-radius: 5px;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    background: white;
-}
-
-.vehicle-items:hover {
-    cursor: pointer;
-    box-shadow: 3px 3px 3px black;
-    background: whitesmoke;
-}
-
-.remove.button.small {
-    background: red;
-}
-
-/* ——————————————————————————————— */
-/* —————— MAINTENANCE ITEMS ———————*/
-/* ——————————————————————————————— */
-
 .maintenance-items-grid.grid-container {
     margin-top: 36px;
     margin-bottom: 36px;
@@ -208,10 +126,6 @@
     font-size: 20px;
 }
 
-
-/* ——————————————————————————————— */
-/* —————— MAINTENANCE ITEM SHOW ———————*/
-/* ——————————————————————————————— */
 
 .information-container{
     display: flex;
