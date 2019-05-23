@@ -238,7 +238,10 @@
     border-radius: 5;
 }
 
-
-body {
-    background: #1779ba;
+#error-modal {
+    position: absolute;
+    z-index: 9;
+    margin: 0 auto;
+    top: calc(50% - (40% / 2));
+	left: calc(50% - (40% / 2));
 }
